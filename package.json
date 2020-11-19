@@ -1,0 +1,26 @@
+{
+  "name": "bot-discord",
+  "version": "1.0.0",
+  "description": "Bot Discord",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thomas-LEPINE/bot-discord.git"
+  },
+  "keywords": [
+    "Bot",
+    "discord"
+  ],
+  "author": "Thomas LEPINE, Lucas PERCEREAU, Hugo REMIN, Mael COURONNE",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thomas-LEPINE/bot-discord/issues"
+  },
+  "homepage": "https://github.com/Thomas-LEPINE/bot-discord#readme",
+  "dependencies": {
+    "discord.js": "^12.4.1"
+  }
+}
