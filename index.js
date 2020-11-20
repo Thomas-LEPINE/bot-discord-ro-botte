@@ -3,9 +3,10 @@ const config = require("./config.json");
 
 /*  Créer un nouveau Discord.Client et l'attribue au client constant. Ce client permet en partie d'interagir avec l'API Discord */
 const client = new Discord.Client();
+/* Préfixe : */
+const prefix = config.BOT_PREFIXE;
 
 /* CODE */
-const prefix = "!";
 client.on("message", function(message) {
 	/* Prépare le message : */
 	if (message.author.bot) return;

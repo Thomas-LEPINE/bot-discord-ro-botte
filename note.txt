@@ -1,0 +1,2 @@
+instalation discord.js
+superagent (npm i superagent --save)
