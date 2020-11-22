@@ -52,7 +52,7 @@ Vous devez avoir Node sur votre PC
 https://nodejs.org/dist/v14.15.1/node-v14.15.1-x64.msi
 ```
 * Discord
-Vous devez être administrateur d'un serveur Discord pour pouvoir ajouter le bot.
+ * Vous devez être administrateur d'un serveur Discord pour pouvoir ajouter le bot.
 ```sh
 https://discord.com/api/oauth2/authorize?client_id=779099054084194415&permissions=8&scope=bot
 ```
