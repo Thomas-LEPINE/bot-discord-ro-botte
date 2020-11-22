@@ -1,7 +1,6 @@
 [![Contributors][contributors-shield]][contributors-url]
 [![Issues][issues-shield]][issues-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-[![Forks][forks-shield]][forks-url]
+[![LinkedIn - Thomas Lépine][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
 <br />
@@ -93,7 +92,6 @@ node main.js
  -->
 
 
-s
 <!-- MARKDOWN LINKS & IMAGES -->
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=flat-square
 [contributors-url]: https://github.com/Thomas-LEPINE/bot-discord/graphs/contributors
