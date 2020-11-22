@@ -1,14 +1,13 @@
 [![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
+[![Forks][forks-shield]][forks-url]
 
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <img src="images/logo.png" alt="Logo" width="80" height="80">
+
+  <img src="https://github.com/Thomas-LEPINE/Best-README-Template/blob/master/images/logo.png" alt="Logo" width="80" height="80">
 
   <h3 align="center">README</h3>
 
@@ -23,7 +22,7 @@
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
-* [À propos](#a-propos)
+* [À propos](#à-propos)
   * [Technologie](#technologie)
   * [Prerequis](#prerequis)
   * [Installation](#installation)
@@ -73,10 +72,10 @@ node main.js
 <!-- CONTACT -->
 ## Contact
 
-Thomas Lépine - tlepine@etud.univ-angers.fr
-Lucas Percereau - 
-Hugo Rémin - 
-Maël Couroné - 
+* Thomas Lépine - tlepine@etud.univ-angers.fr
+* Lucas Percereau - 
+* Hugo Rémin - 
+* Maël Couroné - 
 
 <!-- ACKNOWLEDGEMENTS -->
 <!-- ## Acknowledgements
