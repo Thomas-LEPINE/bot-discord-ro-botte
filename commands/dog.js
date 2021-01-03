@@ -18,5 +18,4 @@ module.exports.help = {
     descritpion: 'Renvoie un chien (bark bark)', // Description breve de la commande
     args: false, // True si la commande nécessite forcément des arguments (false sinon)
     usage: '', // Message d'usage de la commande (indication quand des arguments sont attendus)
-    
 };
