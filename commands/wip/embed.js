@@ -26,4 +26,5 @@ module.exports.help = {
   aliases: ["embed"], // Tous les mots clés permettant d'executer la commande
   args: false, // True si la commande nécessite forcément des arguments (false sinon)
   usage: "", // Message d'usage de la commande (indication quand des arguments sont attendus)
+  category: 'wip', // Categorie de la commande (le nom du repertoire dans notre cas)
 };

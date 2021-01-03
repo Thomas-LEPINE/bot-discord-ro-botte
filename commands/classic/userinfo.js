@@ -10,4 +10,5 @@ module.exports.help = { // Toutes les informations de la commande
     aliases: ['userinfo', 'infouser', 'infoof'], // Tous les mots clés permettant d'executer la commande
     args: true, // True si la commande nécessite forcément des arguments (false sinon)
     usage: '@Mention de la personne', // Message d'usage de la commande (indication quand des arguments sont attendus)
+    category: 'classic', // Categorie de la commande (le nom du repertoire dans notre cas)
 };
