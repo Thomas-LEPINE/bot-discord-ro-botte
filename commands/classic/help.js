@@ -53,19 +53,22 @@ module.exports.run = (client, message, args) => {
                 'Description', 
                 `${command.help.descritpion}`
             )
-            .addField(
-                'Exemple d\'utilisation', 
-                command.help.args ? `\`${PREFIX}${command.help.name} ${command.help.usage}\`` : `\`${PREFIX}${command.help.name}\``,
-                true
-            )
         ;
 
-        if ((Object.keys(command.help.aliases).length - 1) > 0) { // Renvoie la liste des aliases permettant d'accèdeer à la commande
-            embed.addField(
-                'Alias : ',
-                `${command.help.aliases.join(', ')}`,
-                true
-            );
+        if (Object.keys(command.help.aliases).length - 1 > 0) {
+          // Renvoie la liste des aliases permettant d'accèdeer à la commande
+          embed.addField(
+            "Exemple d'utilisation",
+            command.help.args
+              ? `\`${PREFIX}${command.help.name} ${command.help.usage}\``
+              : `\`${PREFIX}${command.help.name}\``,
+            true
+          );
+          embed.addField(
+            "Alias : ",
+            `${command.help.aliases.join(", ")}`,
+            true
+          );
         }
         return message.channel.send(embed);
     }
