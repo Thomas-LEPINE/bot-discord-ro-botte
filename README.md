@@ -6,7 +6,7 @@
 <br />
 <p align="center">
 
-  <img src="https://github.com/Thomas-LEPINE/bot-discord/blob/main/assets/images/logo_ro-botte2.png" alt="Logo" width="80" height="80">
+  <img src="https://github.com/Thomas-LEPINE/bot-discord/blob/main/assets/images/logo_ro-botte2.png" alt="Logo" width="150" height="80">
 
   <h3 align="center">README</h3>
 
@@ -72,13 +72,13 @@ node main.js
 ## Contact
 
 * Thomas Lépine - tlepine@etud.univ-angers.fr
-* Lucas Percereau - 
-* Hugo Rémin - 
-* Maël Couroné - 
+* Lucas Percereau - lpercereau@etud.univ-angers.fr
+* Hugo Rémin - hremin@etud.univ-angers.fr
+* Maël Couroné - macour@etud.univ-angers.fr
 
 <br />
 <p align="center">
-  <img src="https://github.com/Thomas-LEPINE/bot-discord/blob/main/assets/images/logo_ro-botte1.png" alt="Logo" width="80" height="80">
+  <img src="https://github.com/Thomas-LEPINE/bot-discord/blob/main/assets/images/logo_ro-botte1.png" alt="Logo" width="200">
 
   <h3 align="center">ENJOY</h3>
 </p>
