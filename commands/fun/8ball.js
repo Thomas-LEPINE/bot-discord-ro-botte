@@ -18,8 +18,9 @@ module.exports.run = (client, message, args) => {
     const embed = new MessageEmbed()
         .setAuthor(message.author.username, message.author.displayAvatarURL())
         .setColor("#000")
-        // .setThumbnail(client.user.displayAvatarURL())
-        .setImage("../../assets/images/eight-ball.png")
+        // .setThumbnail(client.user.displayAvatarURL()) // Avatar du bot
+        // .setThumbnail('https://raw.githubusercontent.com/Thomas-LEPINE/bot-discord/main/assets/images/eight-ball.png?token=APJH2GYZNKDTDGXWALCURNS76NT6U') // Image bule num 8 avec fond rose saumon
+        .setThumbnail('https://raw.githubusercontent.com/Thomas-LEPINE/bot-discord/main/assets/images/billiard.png?token=APJH2GYZV4IBTP4UG7DLCCK76NURA') // Image bule num 8 classique
         .addField(question, replies[response])
     ;
     return message.channel.send(embed);
