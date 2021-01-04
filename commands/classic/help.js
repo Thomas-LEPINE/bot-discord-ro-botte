@@ -7,7 +7,7 @@ const categoryOfCommandsList = readdirSync('./commands'); // Renvoie un array du
 
 module.exports.run = (client, message, args) => {
     // La fonction associée à la commande :
-    if (args.lenght < 1) { // Si la commande a des argument (on ne s'interesse à TOUTES LES COMMANDES)
+    if (!Object.keys(args).length) { // Si la commande n'a pas d'arguments (on ne s'interesse à TOUTES LES COMMANDES)
         const embed = 
             new MessageEmbed()
             .setColor('#efef12')
@@ -59,7 +59,8 @@ module.exports.run = (client, message, args) => {
                 true
             )
         ;
-        if (command.help.aliases.lenght > 1) { // Renvoie la liste des aliases permettant d'accèdeer à la commande
+
+        if ((Object.keys(command.help.aliases).length - 1) > 0) { // Renvoie la liste des aliases permettant d'accèdeer à la commande
             embed.addField(
                 'Alias : ',
                 `${command.help.aliases.join(', ')}`,
