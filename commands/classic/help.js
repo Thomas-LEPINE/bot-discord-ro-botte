@@ -55,20 +55,20 @@ module.exports.run = (client, message, args) => {
             )
         ;
 
-        if (Object.keys(command.help.aliases).length - 1 > 0) {
-          // Renvoie la liste des aliases permettant d'accèdeer à la commande
-          embed.addField(
-            "Exemple d'utilisation",
-            command.help.args
-              ? `\`${PREFIX}${command.help.name} ${command.help.usage}\``
-              : `\`${PREFIX}${command.help.name}\``,
-            true
-          );
-          embed.addField(
-            "Alias : ",
-            `${command.help.aliases.join(", ")}`,
-            true
-          );
+        if (Object.keys(command.help.aliases).length > 1) {
+            // Renvoie la liste des aliases permettant d'accèder à la commande
+            embed.addField(
+                "Exemple d'utilisation",
+                command.help.args
+                ? `\`${PREFIX}${command.help.name} ${command.help.usage}\``
+                : `\`${PREFIX}${command.help.name}\``,
+                true
+            );
+            embed.addField(
+                "Alias : ",
+                `${command.help.aliases.join(", ")}`,
+                true
+            );
         }
         return message.channel.send(embed);
     }
