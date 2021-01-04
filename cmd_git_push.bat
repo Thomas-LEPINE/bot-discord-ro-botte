@@ -1,6 +1,7 @@
 @echo off
 
 :: Commandes git ↓
+git pull
 git add .
 git status
 set /p commitMessage = Message du commit :  
