@@ -22,6 +22,7 @@
   "homepage": "https://github.com/Thomas-LEPINE/bot-discord#readme",
   "dependencies": {
     "discord.js": "^12.4.1",
+    "node-fetch": "^2.6.1",
     "superagent": "^6.1.0"
   }
 }

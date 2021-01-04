@@ -4,14 +4,29 @@ module.exports.run = (client, message, args) => {
     // La fonction associée à la commande :
     const replies = [
         "Oui :white_check_mark:",
-        "Non :x:", "Peut-être ...",
+        "Non :x:",
         "Ne poses plus jamais la question ...",
         "Bonne question !",
-        "J'ai pas la réponse",
+        "J'ai pas la réponse ...",
         "Sans doute !",
-        "Oui !",
         ":no_entry: Stop !",
-        "No way !"
+        "No way !",
+        "Il vaut mieux ne pas vous le dire maintenant",
+        "Hummm, demandez à nouveau plus tard",
+        "C'est certain",
+        "C'est très probable",
+        "Mes sources disent non",
+        "Réponse vague ... Mais je dirai oui",
+        "Réponse vague ... Mais je dirai non",
+        "Les signes indiquent que oui",
+        "Mes sources disent oui",
+        "Sans aucun doute",
+        "Oui ! Sans aucun doute !",
+        "D'après les étoiles, ça parait certain !",
+        "L'allignement des planètes ne semble pas bon, donc non.",
+        "Si on regarde de plus prêt les lois de l'univers et les étoiles, le tout combiné avec les règles mathématiques et les différents théorèmes, je dirai que la réponse est trop compliquée pour vous le dire ...",
+        "Je pourrai faire une réponse longue, mais j'ai la flemme, du coup c'est non",
+        "Désolé, j'ai pas le temps de répondre, j'ai piscine",
     ];
     const question = args.join(" "); // Récupère la question qui a été posé
     const response = Math.floor(Math.random() * replies.length); // Nombre random
@@ -20,7 +35,8 @@ module.exports.run = (client, message, args) => {
         .setColor("#000")
         // .setThumbnail(client.user.displayAvatarURL()) // Avatar du bot
         // .setThumbnail('https://raw.githubusercontent.com/Thomas-LEPINE/bot-discord/main/assets/images/eight-ball.png?token=APJH2GYZNKDTDGXWALCURNS76NT6U') // Image bule num 8 avec fond rose saumon
-        .setThumbnail('https://raw.githubusercontent.com/Thomas-LEPINE/bot-discord/main/assets/images/billiard.png?token=APJH2G4W7SA4IMJGK52CEIS76NU7I') // Image bule num 8 classique
+        // .setThumbnail('https://raw.githubusercontent.com/Thomas-LEPINE/bot-discord/main/assets/images/billiard.png?token=APJH2GZMEJNZMTD7EHF4Z5C76NVH4') // Image bule num 8 classique
+        .setThumbnail('https://raw.githubusercontent.com/Thomas-LEPINE/bot-discord/main/assets/images/billiards.png?token=APJH2GY44ZMWS5PXNB3W5R276NVMK')
         .addField(question, replies[response])
     ;
     return message.channel.send(embed);
