@@ -6,7 +6,7 @@
 <br />
 <p align="center">
 
-  <img src="https://github.com/Thomas-LEPINE/bot-discord/blob/main/assets/images/logo_ro-botte2.png" alt="Logo" width="150" height="80">
+  <img src="https://github.com/Thomas-LEPINE/bot-discord/blob/main/assets/images/logo_ro-botte2.png" alt="Logo" width="200">
 
   <h3 align="center">README</h3>
 
@@ -78,7 +78,7 @@ node main.js
 
 <br />
 <p align="center">
-  <img src="https://github.com/Thomas-LEPINE/bot-discord/blob/main/assets/images/logo_ro-botte1.png" alt="Logo" width="200">
+  <img src="https://github.com/Thomas-LEPINE/bot-discord/blob/main/assets/images/logo_ro-botte1.png" alt="Logo" width="250">
 
   <h3 align="center">ENJOY</h3>
 </p>
