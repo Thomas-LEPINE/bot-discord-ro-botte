@@ -1,2 +1,4 @@
 instalation discord.js
 superagent (npm i superagent --save)
+
+https://discord.com/developers/applications/779099054084194415/bot
