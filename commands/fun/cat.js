@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async(client, message, args) => {
     // La fonction associée à la commande :
-    message.channel.send('Miaou                Enculer');
+    message.channel.send('Miaou                                                                                                             Enculer');
 };
 
 module.exports.help = {
