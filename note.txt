@@ -1,4 +1,5 @@
 instalation discord.js
 superagent (npm i superagent --save)
+node-fetch (npm i node-fetch)
 
 https://discord.com/developers/applications/779099054084194415/bot
