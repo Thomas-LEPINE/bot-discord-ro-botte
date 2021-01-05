@@ -16,43 +16,35 @@ module.exports.run = (client, message, args) => {
 
         var compat=(sommep1+sommep2)%101;
         var final_message="";
-
-        if(compat ==0)
+        switch(true)
         {
-            final_message=final_message.concat(final_message,"0%, aucun love ici");
-        }
-        else
-        {
-            if(compat <=25)
-            {
+            case 0:
+                final_message=final_message.concat(final_message,"0%, aucun love ici");
+                break;
+            
+            case compat<=25:
                 final_message=final_message.concat(final_message,compat.toString(),"%, pas d'espoir entre ces deux là");
-            }
-            else
-            {
-                if(compat <=50)
-                {
-                    final_message=final_message.concat(final_message,compat.toString(),"%, ça peut faire un coup d'un soir");
-                }
-                else
-                {
-                    if(compat <=75)
-                    {
-                        final_message=final_message.concat(final_message,compat.toString(),"%, le mariage est clairement envisageable");
-                    }
-                    else
-                    {
-                        if(compat <=99)
-                        {
-                            final_message=final_message.concat(final_message,compat.toString(),"%, commencez à réfléchir aux enfants");
-                        }
-                        else
-                        {
-                            final_message=final_message.concat(final_message,"100%, c'est le véritable amour !!!!");
-                        }
-                    }
-                }
-            }
-        }    
+                break;
+            
+            case compat <=50:
+                final_message=final_message.concat(final_message,compat.toString(),"%, ça peut faire un coup d'un soir");
+                break;
+            
+            case compat <=75:
+                final_message=final_message.concat(final_message,compat.toString(),"%, le mariage est clairement envisageable");
+                break;
+            
+            case compat <=99:
+                final_message=final_message.concat(final_message,compat.toString(),"%, commencez à réfléchir aux enfants");
+                break;
+            
+            case 100:
+                final_message=final_message.concat(final_message,"100%, c'est le véritable amour !!!!");
+                break;
+
+            default:
+                break;
+        }
 
         message.channel.send(final_message);
 }
