@@ -5,7 +5,7 @@ git pull
 git add .
 git status
 SET /A %commit-message% = Message du commit :  
-git commit -m %%1
+git commit -m %1
 git push
 :: #################
 
