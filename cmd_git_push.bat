@@ -5,7 +5,7 @@ git pull
 git add .
 git status
 set /p commitMessage = Message du commit :  
-git commit -m "${commitMessage%}"
+git commit -m $commitMessage
 git push
 :: #################
 
