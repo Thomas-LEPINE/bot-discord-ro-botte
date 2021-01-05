@@ -6,7 +6,7 @@ git add .
 git status
 SET commitMessage =
 SET /P commitMessage = Message du commit :  
-git commit -m '%commitMessage%'
+git commit -m '' & %commitMessage%
 git push
 :: #################
 
