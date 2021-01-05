@@ -1,11 +1,11 @@
 @echo off
-
+set commit-message
 :: Commandes git ↓
 git pull
 git add .
 git status
-SET /P commit-message = Message du commit :  
-git commit -m %commit-message
+set /P commit-message="Message du commit :  "
+git commit -m %commit-message%
 @REM git commit -m %1
 git push
 :: #################
