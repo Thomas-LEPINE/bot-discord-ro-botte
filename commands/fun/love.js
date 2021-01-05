@@ -29,19 +29,19 @@ module.exports.run = (client, message, args) => {
         {
             if(compat <=50)
             {
-                final_message=final_message.concat(final_message,compat.toString(),"% ça peut faire un coup d'un soir");
+                final_message=final_message.concat(final_message,compat.toString(),"%, ça peut faire un coup d'un soir");
             }
             else
             {
                 if(compat <=75)
                 {
-                    final_message=final_message.concat(final_message,compat.toString(),"% le mariage est clairement envisageable");
+                    final_message=final_message.concat(final_message,compat.toString(),"%, le mariage est clairement envisageable");
                 }
                 else
                 {
                     if(compat <=99)
                     {
-                        final_message=final_message.concat(final_message,compat.toString(),"% commencez à réfléchir aux enfants");
+                        final_message=final_message.concat(final_message,compat.toString(),"%, commencez à réfléchir aux enfants");
                     }
                     else
                     {
