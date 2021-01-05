@@ -1,4 +1,5 @@
 @echo off
+
 set commit-message
 :: Commandes git ↓
 git pull
