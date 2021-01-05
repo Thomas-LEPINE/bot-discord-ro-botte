@@ -16,9 +16,10 @@ set /p commit-message="Message du commit :  "
 @REM @REM     echo %%a
 @REM @REM )
 
-git commit -m %commit-message%
+git commit -m "%commit-message%"
 git commit -m %1
 git push
 :: #################
+
 
 set /p enter = Appuyez sur une touche pour terminer ...
