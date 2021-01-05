@@ -17,35 +17,35 @@ module.exports.run = (client, message, args) => {
 
     if(compat ==0)
     {
-        final_message=final_message.concat(final_message,"Aucun love ici, 0%");
+        final_message=final_message.concat(final_message,"0%, aucun love ici");
     }
     else
     {
         if(compat <=25)
         {
-            final_message=final_message.concat(final_message,"Pas d'espoir entre ces deux là, ",compat.toString(),"%");
+            final_message=final_message.concat(final_message,compat.toString(),"%, pas d'espoir entre ces deux là");
         }
         else
         {
             if(compat <=50)
             {
-                final_message=final_message.concat(final_message,"Ça peut faire un coup d'un soir, ",compat.toString(),"%");
+                final_message=final_message.concat(final_message,compat.toString(),"% ça peut faire un coup d'un soir");
             }
             else
             {
                 if(compat <=75)
                 {
-                    final_message=final_message.concat(final_message,"Le mariage est clairement envisageable, ",compat.toString(),"%");
+                    final_message=final_message.concat(final_message,compat.toString(),"% le mariage est clairement envisageable");
                 }
                 else
                 {
                     if(compat <=99)
                     {
-                        final_message=final_message.concat(final_message,"Commencez à réfléchir aux enfants, ",compat.toString(),"%");
+                        final_message=final_message.concat(final_message,compat.toString(),"% commencez à réfléchir aux enfants");
                     }
                     else
                     {
-                        final_message=final_message.concat(final_message,"C'est le véritable amour !!!!, 100%");
+                        final_message=final_message.concat(final_message,"100%, c'est le véritable amour !!!!");
                     }
                 }
             }
