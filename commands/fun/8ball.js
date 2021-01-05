@@ -15,11 +15,11 @@ module.exports.run = (client, message, args) => {
         "Hummm, demandez à nouveau plus tard",
         "C'est certain",
         "C'est très probable",
-        "Mes sources disent non",
-        "Réponse vague ... Mais je dirai oui",
-        "Réponse vague ... Mais je dirai non",
+        "Mes sources disent que non",
+        "Mes sources disent que oui",
+        "Réponse vague ... Mais en résumé je dirai oui",
+        "Réponse vague ... Mais en résumé je dirai non",
         "Les signes indiquent que oui",
-        "Mes sources disent oui",
         "Sans aucun doute",
         "Oui ! Sans aucun doute !",
         "D'après les étoiles, ça parait certain !",
@@ -27,6 +27,8 @@ module.exports.run = (client, message, args) => {
         "Si on regarde de plus prêt les lois de l'univers et les étoiles, le tout combiné avec les règles mathématiques et les différents théorèmes, je dirai que la réponse est trop compliquée pour vous le dire ...",
         "Je pourrai faire une réponse longue, mais j'ai la flemme, du coup c'est non",
         "Désolé, j'ai pas le temps de répondre, j'ai piscine",
+        "Non ... vraiment non ...",
+        "Oui ... Quoique ... Non enfaite ...",
     ];
     const question = args.join(" "); // Récupère la question qui a été posé
     const response = Math.floor(Math.random() * replies.length); // Nombre random
