@@ -4,10 +4,13 @@
 git pull
 git add .
 git status
-set /p commitMessage = Message du commit :  
-git commit -m "${%commitMessage%}"
+SET commitMessage =
+SET /P commitMessage = Message du commit :  
+git commit -m '%commitMessage%'
 git push
 :: #################
 
-echo  
+echo %commitMessage%
+
+echo
 set /p enter = Appuyez sur une touche pour terminer ...
