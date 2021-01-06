@@ -4,8 +4,8 @@ const { MessageEmbed } = require("discord.js");
 module.exports.run = (client, message, args) => {
     // La fonction associée à la commande :
     request('https://data.angers.fr/api/records/1.0/search/?dataset=objets-trouves-dans-les-gares-en-temps-reel&q=&rows=1130&facet=date&facet=gc_obo_gare_origine_r_name&facet=gc_obo_type_c', function (error, response, body) {
-        console.error('error:', error); // Print the error if one occurred
-        console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+        // console.error('error:', error); // Print the error if one occurred
+        // console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
 
         ///Parsing JSON DATA
         const obj = JSON.parse(body);

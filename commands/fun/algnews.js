@@ -5,7 +5,7 @@ module.exports.run = (client, message, args) => { // La fonction associée à la
 };
 
 module.exports.help = { // Toutes les informations de la commande
-    name: "algnews",
+    name: "alligatorgnews",
     descritpion: "Retourne une édtion d'alligator news si elle existe",
     aliases: ['alligatornews', 'algnews', 'journal'],
     usage: '+ le numéro de l\'édition souhaitée',

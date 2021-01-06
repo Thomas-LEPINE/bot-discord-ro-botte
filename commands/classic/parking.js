@@ -4,8 +4,8 @@ const { MessageEmbed } = require("discord.js");
 module.exports.run = (client, message, args) => {
     // La fonction associée à la commande :
     request('https://data.angers.fr/api/records/1.0/search/?dataset=parking-angers&q=&rows=18&facet=nom', function (error, response, body) {
-        console.error('error:', error); // Print the error if one occurred
-        console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+        // console.error('error:', error); // Print the error if one occurred
+        // console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
 
         const obj = JSON.parse(body);
 
