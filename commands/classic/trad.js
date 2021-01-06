@@ -2,7 +2,7 @@ const request = require('request');
 const { MessageEmbed } = require("discord.js");
 
 module.exports.run = (client, message, args) => {
-    message.channel.send('VA BIEN TE FAIRE ENCULER CA MARCHE PAS CETTE MERDE, C\'EST GRATUIT MAIS OBLIGÉ DE METTRE UNE CARTE BANCAIRE');
+    message.channel.send('VAS BIEN TE FAIRE ENCULER CA MARCHE PAS CETTE MERDE, C\'EST GRATUIT MAIS OBLIGÉ DE METTRE UNE CARTE BANCAIRE');
 };
 
 module.exports.help = { // Toutes les informations de la commande
