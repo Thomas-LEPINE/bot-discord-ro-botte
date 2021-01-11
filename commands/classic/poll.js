@@ -9,9 +9,9 @@ module.exports.run = async (client, message, args) => {
         .setTimestamp()
     ;
     if (Object.keys(args).length > 0) { // Si la commande a des arguments
-        const question = args.join(" "); // Récupère la question qui a été posé
-        embed.addField(`Auteur : ${message.author.username}`, `-`);
-        embed.addField("Question  :speech_balloon: :  ", question);
+      const question = args.join(" "); // Récupère la question qui a été posé
+      // embed.addField(`Auteur : ${message.author.username}`, `-`);
+      embed.addField(`${question} \u200B :speech_balloon:`, "\u200B");
     }
     embed.addField(
         "Répondre à l'aide de l'une des reactions suivantes : ",

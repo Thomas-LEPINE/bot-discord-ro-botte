@@ -38,7 +38,7 @@ module.exports.run = (client, message, args) => {
         // .setThumbnail(client.user.displayAvatarURL()) // Avatar du bot
         // .setThumbnail('https://raw.githubusercontent.com/Thomas-LEPINE/bot-discord/main/assets/images/eight-ball.png?token=APJH2GYZNKDTDGXWALCURNS76NT6U') // Image bule num 8 avec fond rose saumon
         // .setThumbnail('https://raw.githubusercontent.com/Thomas-LEPINE/bot-discord/main/assets/images/billiard.png?token=APJH2GZMEJNZMTD7EHF4Z5C76NVH4') // Image bule num 8 classique
-        .setThumbnail('https://raw.githubusercontent.com/Thomas-LEPINE/bot-discord/main/assets/images/billiards.png?token=APJH2GY44ZMWS5PXNB3W5R276NVMK')
+        .setThumbnail('https://files.u-angers.fr/data/f-95e9748cc34aa5a5.png')
         .addField(question, replies[response])
     ;
     return message.channel.send(embed);
