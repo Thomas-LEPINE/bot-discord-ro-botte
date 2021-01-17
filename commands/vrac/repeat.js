@@ -10,4 +10,6 @@ module.exports.help = { // Toutes les informations de la commande
     args: true, // True si la commande nécessite forcément des arguments (false sinon)
     usage: 'mot1 mot2 ...', // Message d'usage de la commande (indication quand des arguments sont attendus)
     category: 'classic', // Categorie de la commande (le nom du repertoire dans notre cas)
+    permission: false, // Si la commande nécessite des droits particulier
+    permissionRequiered: '', //Permission minimimum demandé si besoin
 };

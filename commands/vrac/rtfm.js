@@ -9,4 +9,6 @@ module.exports.help = { // Toutes les informations de la commande
     usage: '',
     args: false, // Nécessite des arguments
     category: 'classic', // Categorie de la commande (le nom du repertoire dans notre cas)
+    permission: false, // Si la commande nécessite des droits particulier
+    permissionRequiered: '', //Permission minimimum demandé si besoin
 };

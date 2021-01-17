@@ -29,15 +29,16 @@ module.exports.run = (client, message, args) => {
         "Désolé, j'ai pas le temps de répondre, j'ai piscine",
         "Non ... vraiment non ...",
         "Oui ... Quoique ... Non enfaite ...",
+        "Oui, sûr et certain !",
+        "Absolument !",
+        "... Heuu ... Oui ?",
+        "Comme dirait Julien Lepers : 'ET JE DIS OUI OUI OUI !",
     ];
     const question = args.join(" "); // Récupère la question qui a été posé
     const response = Math.floor(Math.random() * replies.length); // Nombre random
     const embed = new MessageEmbed()
         .setAuthor(message.author.username, message.author.displayAvatarURL())
         .setColor("#000")
-        // .setThumbnail(client.user.displayAvatarURL()) // Avatar du bot
-        // .setThumbnail('https://raw.githubusercontent.com/Thomas-LEPINE/bot-discord/main/assets/images/eight-ball.png?token=APJH2GYZNKDTDGXWALCURNS76NT6U') // Image bule num 8 avec fond rose saumon
-        // .setThumbnail('https://raw.githubusercontent.com/Thomas-LEPINE/bot-discord/main/assets/images/billiard.png?token=APJH2GZMEJNZMTD7EHF4Z5C76NVH4') // Image bule num 8 classique
         .setThumbnail('https://files.u-angers.fr/data/f-95e9748cc34aa5a5.png')
         .addField(question, replies[response])
     ;
@@ -51,4 +52,6 @@ module.exports.help = { // Toutes les informations de la commande
     args: true, // True si la commande nécessite forcément des arguments (false sinon)
     usage: 'La question existencielle que vous vous posez', // Message d'usage de la commande (indication quand des arguments sont attendus)
     category: 'fun', // Categorie de la commande (le nom du repertoire dans notre cas)
+    permission: false, // Si la commande nécessite des droits particulier
+    permissionRequiered: '', //Permission minimimum demandé si besoin
 };

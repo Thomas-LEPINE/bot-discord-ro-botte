@@ -9,6 +9,8 @@ module.exports.help = { // Toutes les informations de la commande
     descritpion: 'Récupère les infos d\'un utilisateur mentionné (tag) -> permet de le retrouver sur Discord malgré le pseudo sur un seveur',
     aliases: ['userinfo', 'infouser', 'user'], // Tous les mots clés permettant d'executer la commande
     args: true, // True si la commande nécessite forcément des arguments (false sinon)
-    usage: '@Mention de la personne', // Message d'usage de la commande (indication quand des arguments sont attendus)
+    usage: '@Username', // Message d'usage de la commande (indication quand des arguments sont attendus)
     category: 'classic', // Categorie de la commande (le nom du repertoire dans notre cas)
+    permission: false, // Si la commande nécessite des droits particulier
+    permissionRequiered: '', //Permission minimimum demandé si besoin
 };

@@ -1,17 +1,18 @@
-module.exports.run = (client, message, args) => {
+module.exports.run = async (client, message, args) => {
     // La fonction associée à la commande :
     const user = message.mentions.users.first(); // Récupère l'user mentionné
-    const reason = args.splice(1).join(" ") || 'Aucun message n\'a été donné' /* Message par défaut */; // Récupère la raison qui a été donné (si donné)
+    const reason = args.splice(1).join(" ") || 'Aucune raison n\'a été donné' /* Message par défaut */; // Récupère la raison qui a été donné (si donné)
 
     if(user != undefined) { //L'utilisateur existe
         if (message.guild.member(user).hasPermission('ADMINISTRATOR')) {
-            message.channel.send('L\'utilisateur ne peux pas être banni');
+            return message.channel.send('L\'utilisateur ne peux pas être banni');
         } else {
-            message.channel.send('Bien essayé, mais la commande a été mise en commentaire, bien trop dangereuse entre de mauvaises mains ...');
-            // message.guild.member(user).ban(reason);
+            // message.channel.send('Bien essayé, mais la commande a été mise en commentaire, bien trop dangereuse entre de mauvaises mains ...');
+            await message.guild.member(user).ban(reason);
+            return message.channel.send(`L'utilisateur \`${user.username}\` est ban`);
         }        
     } else {
-        message.channel.send('L\'utilisateur n\'est pas présent dans ce serveur ou n\'a pas correctement mentionné');
+        return message.channel.send('L\'utilisateur n\'est pas présent dans ce serveur ou n\'a pas correctement mentionné');
     }
     
     // user ? message.guild.member(user).kick(reason) : message.channel.send('L\'utilisateur n\'est pas présent dans ce serveur');
