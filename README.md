@@ -32,13 +32,7 @@
 <!-- ABOUT THE PROJECT -->
 ## À propos
 
-À compléter
-
-Liste :
-* 1
-* 2 :smile:
-
-À compléter
+Projet réalisé dans le cadre d'un cours de 5eme année d'école d'ingénieur à Polytech Angers. Objectif : créé un bot Discord en Node.JS.
 
 ### Technologie
 
@@ -59,11 +53,11 @@ https://discord.com/api/oauth2/authorize?client_id=779099054084194415&permission
 
 ### Installation
 
-2. Clone the repo
+1. Clone the repo
 ```sh
 git clone https://github.com/Thomas-LEPINE/bot-discord.git
 ```
-3. Lancer le bot :
+2. Lancer le bot :
 ```sh
 node main.js
 ```
@@ -82,22 +76,6 @@ node main.js
 
   <h3 align="center">ENJOY</h3>
 </p>
-
-<!-- ACKNOWLEDGEMENTS -->
-<!-- ## Acknowledgements
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Img Shields](https://shields.io)
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Pages](https://pages.github.com)
-* [Animate.css](https://daneden.github.io/animate.css)
-* [Loaders.css](https://connoratherton.com/loaders)
-* [Slick Carousel](https://kenwheeler.github.io/slick)
-* [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
-* [Sticky Kit](http://leafo.net/sticky-kit)
-* [JVectorMap](http://jvectormap.com)
-* [Font Awesome](https://fontawesome.com)
- -->
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=flat-square
