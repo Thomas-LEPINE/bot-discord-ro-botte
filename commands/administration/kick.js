@@ -10,7 +10,7 @@ module.exports.run = (client, message, args) => {
             message.guild.member(user).kick(reason);
         }        
     } else {
-        message.channel.send('L\'utilisateur n\'est pas présent dans ce serveur');
+        message.channel.send('L\'utilisateur n\'est pas présent dans ce serveur ou n\'a pas correctement mentionné');
     }
     
     // user ? message.guild.member(user).kick(reason) : message.channel.send('L\'utilisateur n\'est pas présent dans ce serveur');

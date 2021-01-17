@@ -32,7 +32,7 @@ module.exports.run = (client, message, args) => {
             for (const command of client.commands) {
                 if (command[1].help.category === category) {
                     embed.addField(
-                        `${PREFIX}${command[1].help.name}`,
+                        `${command[1].help.name}`,
                         // :small_orange_diamond: 
                         // `Nécessite des arguments : ${command[1].help.args}`,
                         `${command[1].help.descritpion}`,
