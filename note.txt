@@ -2,4 +2,8 @@ instalation discord.js
 superagent (npm i superagent --save)
 node-fetch (npm i node-fetch)
 
+Administration bot :
 https://discord.com/developers/applications/779099054084194415/bot
+
+Lui faire rejoindre un serveur :
+https://discord.com/api/oauth2/authorize?client_id=779099054084194415&permissions=8&scope=bots

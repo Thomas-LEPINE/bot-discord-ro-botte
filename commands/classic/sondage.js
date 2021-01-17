@@ -2,6 +2,11 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
     // La fonction associée à la commande :
+
+    const emojiYes = "✅";
+    const emojiNeutre = "🤔";
+    const emojiNo = "❌";
+
     const embed = new MessageEmbed()
         .setTitle(":loudspeaker:  SONDAGE")
         // .setAuthor(message.author.username, message.author.displayAvatarURL())
@@ -16,21 +21,22 @@ module.exports.run = async (client, message, args) => {
     embed.addField(
         "Répondre à l'aide de l'une des reactions suivantes : ",
         `
-        ✅ - POUR / OUI
-        🤔 - NEUTRE / NE SE PRONONCE PAS
-        ❌ - CONTRE / NON
+        ${emojiYes} - POUR / OUI
+        ${emojiNeutre} - NEUTRE / NE SE PRONONCE PAS
+        ${emojiNo} - CONTRE / NON
         `
     );
     
-    const poll_message = await message.channel.send(embed);
-    await poll_message.react("✅");
-    await poll_message.react("🤔");
-    await poll_message.react("❌");
+    return message.channel.send(embed).then(async msg => {
+        await msg.react(emojiYes);
+        await msg.react(emojiNeutre);
+        await msg.react(emojiNo);
+    });
 };
 
 module.exports.help = { // Toutes les informations de la commande
-    name: 'poll', // nom de la commande
-    aliases: ['poll', 'sondage'], // Tous les mots clés permettant d'executer la commande
+    name: 'sondage', // nom de la commande
+    aliases: ['sondage', 'poll'], // Tous les mots clés permettant d'executer la commande
     descritpion: 'Réalise un sondage de qualité (oui / neutre / non)', // Description breve de la commande
     args: false, // True si la commande nécessite forcément des arguments (false sinon)
     usage: '', // Message d'usage de la commande (indication quand des arguments sont attendus)

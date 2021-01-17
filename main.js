@@ -38,18 +38,21 @@ client.on('message', message => {
 	
 	const command = client.commands.get(commandName) || client.commands.find(commandAlias => commandAlias.help.aliases && commandAlias.help.aliases.includes(commandName)); // Pour inclure les alias à la commande (l'executer avec tous les mots clés qu'on lui aurra associés)
 	if (!command) { // Si la commande n'existe pas
-		message.channel.send(':no_entry: La commande n\'existe pas (encore) ...');
-		return;
+		return message.channel.send(':no_entry: La commande n\'existe pas (encore) ...');
 	} else {
-		if (command.help.args && !args.length) { /* La commande existe, mais nécessite des arguments => true && !=0 */
-			let errorArgs = `:warning: Il faut des arguments pour cette commande, ${message.author} !`;
-	
-			if (command.help.usage) errorArgs += `\nVoici un exemple de comment utiliser la commande : \`${PREFIX}${command.help.name} ${command.help.usage}\``
-	
-			return message.channel.send(errorArgs);
-		} else {
-			// On execute la commande :
-			command.run(client, message, args);
+		if(command.help.permission && !message.member.hasPermission(command.help.permissionRequiered)) { // Doc : https://discord.js.org/#/docs/main/stable/class/Permissions?scrollTo=s-FLAGS
+			return message.channel.send(`Vous devez disposer de certains droits pour effectuer cette commande : ${command.help.permissionRequiered}`);
+		} else {	
+			if (command.help.args && !args.length) { /* La commande existe, mais nécessite des arguments => true && !=0 */
+				let errorArgs = `:warning: Il faut des arguments pour cette commande, ${message.author} !`;
+		
+				if (command.help.usage) errorArgs += `\nVoici un exemple de comment utiliser la commande : \`${PREFIX}${command.help.name} ${command.help.usage}\``
+		
+				return message.channel.send(errorArgs);
+			} else {
+				// On execute la commande :
+				command.run(client, message, args);
+			}
 		}
 	}
 });
