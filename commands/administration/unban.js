@@ -1,10 +1,10 @@
 module.exports.run = async (client, message, args) => {
     // La fonction associée à la commande :
-    let user = await client.users.fetch(argrs[0]);
+    let user = await client.users.fetch(args[0]);
     if(!user) {
         return message.reply("L'utilisateur n'existe pas ou n'est pas ban de ce serveur.");
     } else {
-        message.guild.members.unban(user); // Unban l'user mentionné
+        await message.guild.members.unban(user); // Unban l'user mentionné
         return message.channel.send(`${user} est unban !`);
     }
 };
