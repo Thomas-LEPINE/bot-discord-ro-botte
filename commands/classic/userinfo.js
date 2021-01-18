@@ -1,7 +1,7 @@
 module.exports.run = (client, message, args) => {
     // La fonction associée à la commande :
     const user = message.mentions.users.first();
-    return user ? message.channel.send(`Voici le tag de la personne mentionnée : \`${user.tag}\` -- ID : \`${user.id}\``) : message.channel.send(`L'utilisateur ne semble pas exister sur ce serveur`)
+    return user ? message.channel.send(`TAG : \`${user.tag}\` -- ID : \`${user.id}\``) : message.channel.send(`L'utilisateur ne semble pas exister sur ce serveur`)
 };
 
 module.exports.help = { // Toutes les informations de la commande

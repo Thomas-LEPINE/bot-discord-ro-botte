@@ -4,8 +4,12 @@ module.exports.run = async (client, message, args) => {
     if(!user) {
         return message.reply("L'utilisateur n'existe pas ou n'est pas ban de ce serveur.");
     } else {
-        await message.guild.members.unban(user).catch(console.error); // Unban l'user mentionné
-        return message.channel.send(`${user} est unban !`);
+        try {
+            await message.guild.members.unban(user);
+            return message.channel.send(`${user} est unban !`);
+          } catch (error) { // Si le membre identifié n'est pas dans la liste des membres banni :
+            return message.channel.send(`${user} semble ne pas être banni`);
+        }
     }
 };
 

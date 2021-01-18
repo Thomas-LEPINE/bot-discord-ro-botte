@@ -7,6 +7,7 @@
 <p align="center">
 
   <img src="https://github.com/Thomas-LEPINE/bot-discord/blob/main/assets/images/logo_ro-botte2.png" alt="Logo" width="200">
+  <a href="https://discord.js.org"><img src="https://discord.js.org/static/logo.svg" width="546" alt="discord.js" /></a>
 
   <h3 align="center">README</h3>
 
