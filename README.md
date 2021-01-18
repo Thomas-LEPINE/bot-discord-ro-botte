@@ -19,7 +19,7 @@
 </p>
 
 <!-- TABLE OF CONTENTS -->
-## Table of Contents
+## Sommaire
 
 * [À propos](#à-propos)
   * [Technologie](#technologie)
