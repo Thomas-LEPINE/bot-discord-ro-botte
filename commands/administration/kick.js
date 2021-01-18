@@ -7,7 +7,8 @@ module.exports.run = (client, message, args) => {
         if (message.guild.member(user).hasPermission('ADMINISTRATOR')) {
             message.channel.send('L\'utilisateur ne peux pas être exclu');
         } else {
-            message.guild.member(user).kick(reason);
+            return message.channel.send('Bien essayé, mais la commande a été mise en commentaire, bien trop dangereuse entre de mauvaises mains ...');
+            // return message.guild.member(user).kick(reason);
         }        
     } else {
         message.channel.send('L\'utilisateur n\'est pas présent dans ce serveur ou n\'a pas correctement mentionné');
