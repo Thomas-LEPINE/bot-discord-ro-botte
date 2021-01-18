@@ -28,7 +28,6 @@
 * [Contact](#contact)
 
 
-
 <!-- ABOUT THE PROJECT -->
 ## À propos
 
