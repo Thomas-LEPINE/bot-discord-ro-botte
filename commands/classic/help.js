@@ -25,15 +25,14 @@ module.exports.run = (client, message, args) => {
 
             /* VERSION COMPLETE */
             embed.addField(
-                `:small_orange_diamond: ${category.toUpperCase()} :`,
-                '-',
+                '\u200B',
+                `:small_orange_diamond: ${category.toUpperCase()} :`,                
                 true
             );
             for (const command of client.commands) {
                 if (command[1].help.category === category) {
                     embed.addField(
-                        `${command[1].help.name}`,
-                        // :small_orange_diamond: 
+                        `\`${command[1].help.name}\``,
                         // `Nécessite des arguments : ${command[1].help.args}`,
                         `${command[1].help.descritpion}`,
                         false

@@ -28,9 +28,12 @@ module.exports.run = async (client, message, args) => {
                     }, "Muted");
                 });
             }
-
-            await user.roles.add(muteRole.id);
-            message.channel.send(`<@${user.id}> est muté pour ${ms(ms(muteDuration))}.`);
+            try {
+                user.roles.add(muteRole.id);
+                message.channel.send(`<@${user.id}> est muté pour ${ms(ms(muteDuration))}.`);
+            } catch (error) { // Si le membre identifié n'est pas dans la liste des membres banni :
+                return message.channel.send('```bat' + error + '```');
+            }            
 
             // Quand le temps de mute est fini :
             setTimeout(() => {
@@ -38,7 +41,7 @@ module.exports.run = async (client, message, args) => {
             }, ms(muteDuration));
         }
     } else {
-        return message.channel.send('L\'utilisateur n\'est pas présent dans ce serveur ou n\'a pas correctement mentionné');
+        return message.channel.send('L\'utilisateur n\'est pas présent dans ce serveur ou n\'a pas correctement été mentionné');
     }
 };
 

@@ -36,7 +36,7 @@ module.exports.run = async (client, message, args) => {
 
 module.exports.help = { // Toutes les informations de la commande
     name: 'sondage', // nom de la commande
-    aliases: ['sondage', 'poll'], // Tous les mots clés permettant d'executer la commande
+    aliases: ['sondage', 'survey', 'poll'], // Tous les mots clés permettant d'executer la commande
     descritpion: 'Réalise un sondage de qualité (oui / neutre / non)', // Description breve de la commande
     args: false, // True si la commande nécessite forcément des arguments (false sinon)
     usage: '', // Message d'usage de la commande (indication quand des arguments sont attendus)

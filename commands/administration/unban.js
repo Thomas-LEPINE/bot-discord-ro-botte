@@ -7,7 +7,7 @@ module.exports.run = async (client, message, args) => {
         try {
             await message.guild.members.unban(user);
             return message.channel.send(`${user} est unban !`);
-          } catch (error) { // Si le membre identifié n'est pas dans la liste des membres banni :
+        } catch (error) { // Si le membre identifié n'est pas dans la liste des membres banni :
             return message.channel.send(`${user} semble ne pas être banni`);
         }
     }
