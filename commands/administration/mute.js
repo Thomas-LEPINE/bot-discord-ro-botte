@@ -32,7 +32,8 @@ module.exports.run = async (client, message, args) => {
                 user.roles.add(muteRole.id);
                 message.channel.send(`<@${user.id}> est muté pour ${ms(ms(muteDuration))}.`);
             } catch (error) { // Si le membre identifié n'est pas dans la liste des membres banni :
-                return message.channel.send('```bat' + error + '```');
+                // return message.channel.send('```bat' + error + '```');
+                return;
             }            
 
             // Quand le temps de mute est fini :
