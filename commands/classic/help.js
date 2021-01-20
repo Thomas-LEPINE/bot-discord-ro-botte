@@ -43,33 +43,40 @@ module.exports.run = (client, message, args) => {
         return message.channel.send(embed);
     } else { // Aide pour UNE commande précise
         const command = client.commands.get(args[0]) || client.commands.find(commandAlias => commandAlias.help.aliases && commandAlias.help.aliases.includes(args[0])); // Pour inclure les alias à la commande (l'executer avec tous les mots clés qu'on lui aurra associés)
-        if (!command) return message.channel.send(':no_entry: La commande n\'existe pas (encore) ...');
-        const embed = 
-            new MessageEmbed()
-            .setColor('#efef12')
-            .setTitle(`\`${PREFIX}${command.help.name}\``)
-            .addField(
-                'Description', 
-                `${command.help.descritpion}`
-            )
-        ;
+        if (!command) {
+            return message.channel.send(':no_entry: La commande n\'existe pas (encore) ...');
+        } else {
+            const embed = 
+                new MessageEmbed()
+                .setColor('#efef12')
+                .setTitle(`\`${PREFIX}${command.help.name}\``)
+                .addField(
+                    'Description', 
+                    `${command.help.descritpion}`
+                )
+            ;
 
-        if (Object.keys(command.help.aliases).length > 1) {
-            // Renvoie la liste des aliases permettant d'accèder à la commande
-            embed.addField(
-                "Exemple d'utilisation",
-                command.help.args
-                ? `\`${PREFIX}${command.help.name} ${command.help.usage}\``
-                : `\`${PREFIX}${command.help.name}\``,
-                true
-            );
-            embed.addField(
-                "Alias : ",
-                `${command.help.aliases.join(", ")}`,
-                true
-            );
+            if (Object.keys(command.help.aliases).length > 1) {
+                // Renvoie la liste des aliases permettant d'accèder à la commande
+                embed.addField(
+                    "Exemple d'utilisation",
+                    command.help.args ? `\`${PREFIX}${command.help.name} ${command.help.usage}\`` : `\`${PREFIX}${command.help.name}\``,
+                    true
+                );
+                embed.addField(
+                    "Alias : ",
+                    `${command.help.aliases.join(", ")}`,
+                    true
+                );
+                if(command.help.permission) { // Si la commande a besoin d'une specification précise
+                    embed.addField(
+                        "Permission minimum nécessaire : ",
+                        `${command.help.permissionRequiered}`
+                    );
+                }
+            }
+            return message.channel.send(embed);
         }
-        return message.channel.send(embed);
     }
 };
 
