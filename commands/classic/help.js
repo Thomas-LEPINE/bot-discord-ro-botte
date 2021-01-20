@@ -12,7 +12,7 @@ module.exports.run = (client, message, args) => {
             new MessageEmbed()
             .setColor('#efef12')
             .addField('Liste des commandes', 
-                `Une liste de toutes les sous-catégories disponibles et leurs commandes\nPour plus d'informations sur une commande, tapez : \n\`${PREFIX}help <nom_de_la_commande>\`\n`)
+                `Une liste de toutes les sous-catégories disponibles et leurs commandes.\nPour plus d'informations sur une commande, merci de tapez : \n\`${PREFIX}help <nom_de_la_commande>\`\n`)
         ;
 
         for (const category of categoryOfCommandsList) {
@@ -29,16 +29,21 @@ module.exports.run = (client, message, args) => {
                 `:small_orange_diamond: ${category.toUpperCase()} :`,                
                 true
             );
+            let nomCommande = '\u200B ';
             for (const command of client.commands) {
                 if (command[1].help.category === category) {
-                    embed.addField(
-                        `\`${command[1].help.name}\``,
-                        // `Nécessite des arguments : ${command[1].help.args}`,
-                        `${command[1].help.descritpion}`,
-                        false
-                    );
+                    nomCommande += `\`${command[1].help.name}\``;
+                    nomCommande += ',  ';
+                    // embed.addField(
+                    //     `\`${command[1].help.name}\``,
+                    //`${command[1].help.descritpion}` // Description
+                    // );
                 }
             }
+            embed.addField(
+                '\u200B',
+                `${nomCommande.substr(0, nomCommande.length - 3)}`
+            );
         }
         return message.channel.send(embed);
     } else { // Aide pour UNE commande précise
