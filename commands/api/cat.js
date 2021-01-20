@@ -21,7 +21,7 @@ module.exports.run = async(client, message, args) => {
 module.exports.help = {
     name: 'cat', // nom de la commande
     aliases: ['cat', 'cats', 'chat', 'chats'], // Tous les mots clés permettant d'executer la commande
-    descritpion: 'Renvoie un chat (miaou)', //\nEnvoyez un code d\'erreur HTTP pour obtenir une petite surprise // Description breve de la commande
+    descritpion: 'Renvoie une image de chat (miaou)', //\nEnvoyez un code d\'erreur HTTP pour obtenir une petite surprise // Description breve de la commande
     args: false, // True si la commande nécessite forcément des arguments (false sinon)
     usage: '+ HTTP error (facultatif)', // Message d'usage de la commande (indication quand des arguments sont attendus)
     category: 'api', // Categorie de la commande (le nom du repertoire dans notre cas)
