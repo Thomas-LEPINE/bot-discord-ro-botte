@@ -35,12 +35,14 @@ module.exports.run = (client, message, args) => {
         "Comme dirait Julien Lepers : 'ET JE DIS OUI OUI OUI !",
     ];
     const question = args.join(" "); // Récupère la question qui a été posé
-    const response = Math.floor(Math.random() * replies.length); // Nombre random
+    const response = replies[Math.floor(Math.random() * replies.length)]; // Nombre random
+    // var img = new Image();
+    // img.src('../../assets/images/eight-ball.png');
     const embed = new MessageEmbed()
         .setAuthor(message.author.username, message.author.displayAvatarURL())
         .setColor("#000")
         .setThumbnail('https://files.u-angers.fr/data/f-95e9748cc34aa5a5.png')
-        .addField(question, replies[response])
+        .addField(question, response)
     ;
     return message.channel.send(embed);
 };
