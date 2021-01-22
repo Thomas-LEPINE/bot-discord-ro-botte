@@ -13,8 +13,11 @@ module.exports.run = async(client, message, args) => {
         embed.setImage(cat).setFooter("API : http://aws.random.cat/meow");
         return message.channel.send(embed);
     } else {
-        const cat = await fetch('https://http.cat/' + args[0]).catch(console.error);
-        return message.channel.send('https://http.cat/' + args[0]);
+        if(!isNaN(args[0])) { // Si on a bien récupéré un nombre
+            return message.channel.send('https://http.cat/' + args[0]).catch(console.error);;
+        } else {
+            return;
+        }
     }
 };
 
