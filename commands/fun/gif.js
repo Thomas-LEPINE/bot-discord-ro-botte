@@ -7,6 +7,12 @@ module.exports.run = async (client, message, args) => {
     args = args.join(' ').toLowerCase(); // Réunni les arguments avec un espace entre eux
     // const embed = new MessageEmbed().setColor("#D386F5");
     switch(args) {
+        case 'cyber-secu':
+            await message.channel.send({files: ['./assets/images/cmd-please/smile.png']});
+            break;
+        case 'ag':
+            await message.channel.send({files: ['./assets/images/cmd-please/happy.png']});
+            break;
         case 'milk':
             await message.channel.send({files: ['./assets/images/cmd-please/milk.gif']});
             break;
@@ -53,8 +59,6 @@ module.exports.run = async (client, message, args) => {
             break;
     }
     return;
-    // await message.channel.send(message.author, { files: ['./assets/images/eight-ball.png'] });
-    
 };
 
 module.exports.help = {

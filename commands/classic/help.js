@@ -45,7 +45,8 @@ module.exports.run = (client, message, args) => {
                 `${nomCommande.substr(0, nomCommande.length - 3)}`
             );
         }
-        return message.channel.send(embed);
+        message.channel.send(embed);
+        return message.delete();
     } else { // Aide pour UNE commande précise
         const command = client.commands.get(args[0]) || client.commands.find(commandAlias => commandAlias.help.aliases && commandAlias.help.aliases.includes(args[0])); // Pour inclure les alias à la commande (l'executer avec tous les mots clés qu'on lui aurra associés)
         if (!command) {

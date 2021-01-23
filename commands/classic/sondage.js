@@ -8,7 +8,7 @@ module.exports.run = async (client, message, args) => {
     const emojiNo = "❌";
 
     const embed = new MessageEmbed()
-        .setTitle(":loudspeaker:  SONDAGE")
+        .setTitle("SONDAGE  :loudspeaker:")
         // .setAuthor(message.author.username, message.author.displayAvatarURL())
         .setColor("#E8927C")
         .setTimestamp()
@@ -16,7 +16,7 @@ module.exports.run = async (client, message, args) => {
     if (Object.keys(args).length > 0) { // Si la commande a des arguments
       const question = args.join(" "); // Récupère la question qui a été posé
       // embed.addField(`Auteur : ${message.author.username}`, `-`);
-      embed.addField(`${question} \u200B :speech_balloon:`, "\u200B");
+      embed.addField(`:speech_balloon:  ${question.toUpperCase()}`, "\u200B");
     }
     embed.addField(
         "Répondre à l'aide de l'une des reactions suivantes : ",
@@ -28,9 +28,10 @@ module.exports.run = async (client, message, args) => {
     );
     
     return message.channel.send(embed).then(async msg => {
+        await message.delete(); // Supprime le message
         await msg.react(emojiYes);
         await msg.react(emojiNeutre);
-        await msg.react(emojiNo);
+        await msg.react(emojiNo);        
     });
 };
 
