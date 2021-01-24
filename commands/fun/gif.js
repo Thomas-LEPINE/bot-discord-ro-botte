@@ -1,15 +1,8 @@
-const fetch = require("node-fetch"); // API
-const { MessageEmbed } = require("discord.js");
-const gifSearch = require('gif-search');
+const gifSearch = require('gif-search'); // Doc Github : https://github.com/selcher/gif-search
 
 module.exports.run = async (client, message, args) => {
-    // La fonction associée à la commande :
     args = args.join(' ').toLowerCase(); // Réunni les arguments avec un espace entre eux
-    // const embed = new MessageEmbed().setColor("#D386F5");
     switch(args) {
-        case 'cyber-secu':
-            await message.channel.send({files: ['./assets/images/cmd-please/smile.png']});
-            break;
         case 'ag':
             await message.channel.send({files: ['./assets/images/cmd-please/happy.png']});
             break;
@@ -52,9 +45,20 @@ module.exports.run = async (client, message, args) => {
 
         default:
             try {                
-                gifSearch.query(args).then((gifurl) => { // Recherche un gif correspondant aux arguments
-                    message.channel.send(gifurl);
-                });        
+                gifSearch.random(args).then((gifurl) => { // Recherche un gif correspondant aux arguments
+                    if (gifurl != undefined) {
+                        message.channel.send(gifurl);
+                    } else {
+                        gifSearch.query('not found').then((gifurl2) => { // Recherche un gif correspondant aux arguments
+                            if (gifurl2 != undefined) {
+                                message.channel.send(gifurl2);
+                            } else {
+                                message.channel.send("Not found ...");
+                                
+                            }
+                        }).catch(err => console.log(err));  
+                    }                    
+                }).catch(err => console.log(err));        
             } catch(error){}
             break;
     }
