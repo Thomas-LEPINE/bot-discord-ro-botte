@@ -41,7 +41,7 @@ module.exports.run = (client, message, args) => {
     const embed = new MessageEmbed()
         .setAuthor(message.author.username, message.author.displayAvatarURL())
         .setColor("#000")
-        .setThumbnail('https://files.u-angers.fr/data/f-95e9748cc34aa5a5.png')
+        .setThumbnail('https://files.u-angers.fr/data/f-95e9748cc34aa5a5.png') // From a distant server
         .addField(question, response)
     ;
     return message.channel.send(embed);
