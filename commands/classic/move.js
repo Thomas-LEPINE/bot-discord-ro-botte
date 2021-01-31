@@ -6,18 +6,19 @@ module.exports.run = (client, message, args) => {
 
     const member = client.author;
     //member now holds the user that you want to move
-
-    move(channel);
+    
+    member.setVoiceChannel(channel).then(() => console.log(`Succes`))
+    //move(channel);
     }
     catch(err){
         console.log(err)
     }
 };
-
+/*
 async function move(member, channel) {
-   await member.move_to(channel);
+   await member.setVoiceChannel(channel);
 }
-
+*/
 
 module.exports.help = { // Toutes les informations de la commande
     name: 'move', // nom de la commande

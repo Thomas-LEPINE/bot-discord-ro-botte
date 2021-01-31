@@ -9,7 +9,11 @@ module.exports.run = async (client, message, args) => {
     }
     else
     {
-        if(Number(args[0]) < 10)
+        if(Number(args[0]) < 0 || isNaN(Number(args[0])))
+        {
+            return message.channel.send("⚠️ Nombre de incorrect (inferieur à 0) ⚠️")
+        }
+        else if(Number(args[0]) < 10)
         {
             nb_group = Number(args[0]);
         }
