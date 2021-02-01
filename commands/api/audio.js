@@ -7,7 +7,7 @@ const time = 600000;
 const emojiPause = '⏸️'; // unicode emoji are identified by the emoji itself
 const emojiPlay = '▶️';
 const emojiStop = '⏹️';
-const reactions = [emojiPause, emojiPlay,emojiStop];
+const reactions = [emojiPause, emojiPlay, emojiStop];
 
 /* FONCTIONS : */
 function createCollectorMessage(message, list) {
@@ -19,6 +19,7 @@ function createCollectorMessage(message, list) {
     message.clearReactions()
   );
 }
+
 
 function onCollect(emoji, message, list) {
   if (emoji.name === '⏸️') {
@@ -45,11 +46,44 @@ function filter(reaction, user){
   return (!user.bot) && (reactions.includes(reaction.emoji.name)); // check if the emoji is inside the list of emojis, and if the user is not a bot
 }
 
-function secondsToHms(d) {
+function time2sec(time)
+{
+    var time_code_sec = 0
+    try{
+        var time_code = [""]
+        //temps de la forme int ou XX:XX:XX
+        var idx = 0
+        for(var i in time)
+        {
+          if(isNaN(parseInt(time[i])) && time[i] != ":")
+          {
+              return message.channel.send('⚠️ Le temps spécifié doit être un nombre ou de la forme XX:XX:XX');
+          }
+          else if(time[i] == ":")
+          {
+              idx++
+              time_code.push("")
+          }
+          else
+          {
+              time_code[idx] += time[i]
+          }
+        }
+        for(var i in time_code)
+        {
+          time_code_sec += parseInt(time_code[i]) * (60 ** (time_code.length - 1 - i))
+        }
+    }catch(err){
+      console.log(err)
+    }
+    return time_code_sec
+}
+
+function sec2time(time) {
     
-    var h = Math.floor(d / 3600);
-    var m = Math.floor(d % 3600 / 60);
-    var s = Math.floor(d % 3600 % 60);
+    var h = Math.floor(time / 3600);
+    var m = Math.floor(time % 3600 / 60);
+    var s = Math.floor(time % 3600 % 60);
     
     var hDisplay = h > 0 ? (h < 10 ? "0" : "") + h + (":") : "";
     var mDisplay = m > 0 ? (m < 10 ? "0" : "") + m + (":") : "";
@@ -59,19 +93,15 @@ function secondsToHms(d) {
 }
 
 module.exports.run = async (client, message, args) => {
+  const URL = args[0]
+  // Si la commande a plus de 1 arguments :
+  if (Object.keys(args).length >= 2) { return message.channel.send('⚠️ Un argument est attendus : l\'URL de la vidéo YouTube souhaitée'); }
   
-  // Si la commande a plus d'un argument :
-  if (Object.keys(args).length >= 2) { return message.channel.send('⚠️ Un seul argument est attendu : l\'URL de la vidéo YouTube souhaitée'); }
-
   try {
-    var infos = ""
-    const URL = args[0]
-
     if(!ytdl.validateURL(URL)) { // Si le lien n'est pas valide 
       return message.channel.send('⛔ Lien non-valide ! ⛔');
     }
 
-    const audio = ytdl(URL, { filter: 'audioonly'})
     let videoTitle = "";
     let videoAuthor =  "";
     let videoDuration =  "";
@@ -87,15 +117,16 @@ module.exports.run = async (client, message, args) => {
       console.log(error);
     }
       
-    infos =  videoTitle;
-    var h = Math.floor(videoDuration / 3600);
-    var m = Math.floor(videoDuration % 3600 / 60);
-    var s = Math.floor(videoDuration % 3600 % 60);
+    const infos =  videoTitle;
+    if (Object.keys(args).length == 2)
+    {
+        if(parseInt(args[1]) > videoDuration)
+        {
+            return message.channel.send('⚠️ Temps spécifié superieur à la durée de la vidéo');
+        }
+    }
     
-    var hDisplay = h > 0 ? (h < 10 ? "0" : "") + h + (":") : "";
-    var mDisplay = m > 0 ? (m < 10 ? "0" : "") + m + (":") : "";
-    var sDisplay = s > 0 ? (s < 10 ? "0" : "") + s : "00";
-    const duration = secondsToHms(videoDuration);
+    const duration = sec2time(videoDuration);
     
     const pause_embed = new MessageEmbed()
       .setAuthor(infos, "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fde%2F1c%2F91%2Fde1c91788be0d791135736995109272a.png&f=1&nofb=1")
@@ -116,7 +147,7 @@ module.exports.run = async (client, message, args) => {
     // Only try to join the sender's voice channel if they are in one themselves
     if (message.member.voice.channel) {
       connection = await message.member.voice.channel.join();
-      await connection.play(audio);
+      await connection.play(ytdl(URL, { filter: 'audioonly'}));
       connection.on("end", end => {
         message.member.voice.channel.leave();
       });
