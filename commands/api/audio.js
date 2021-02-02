@@ -37,8 +37,8 @@ function onCollect(emoji, message, list) {
     message.edit(list[1]);
     connection.dispatcher.resume();
   } else if (emoji.name === '⏹️') {
-    message.delete();
-    connection.dispatcher.destroy();
+    connection.disconnect();
+    message.delete()
   }
 }
 
@@ -149,7 +149,10 @@ module.exports.run = async (client, message, args) => {
       connection = await message.member.voice.channel.join();
       await connection.play(ytdl(URL, { filter: 'audioonly'}));
       connection.on("end", end => {
-        message.member.voice.channel.leave();
+        connection.disconnect();
+        message.delete();
+        //message.member.voice.channel.leave();
+        return;
       });
       message.channel.send(list[1])
         .then(msg => msg.react(emojiPause))

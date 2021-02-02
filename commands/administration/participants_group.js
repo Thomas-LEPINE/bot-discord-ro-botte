@@ -26,7 +26,7 @@ module.exports.run = (client, message, args) => {
                             team += 1;
                             return;
                         });
-                        return ;
+                        return;
                     }
                 })
             })
@@ -34,7 +34,7 @@ module.exports.run = (client, message, args) => {
             return;
         }
     })
-    return message.channel.send(`Vous n'êtes pas/plus chef de groupe (*!help group)`)
+    return;
 };
 
 module.exports.help = { // Toutes les informations de la commande
