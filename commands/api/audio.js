@@ -22,23 +22,24 @@ function createCollectorMessage(message, list) {
 
 
 function onCollect(emoji, message, list) {
-  if (emoji.name === '⏸️') {
+  if (emoji.name === '⏸️' && connection.status == 0) {
     message.reactions.removeAll()
     message.react('⏸️')
     message.react('▶️')
     message.react('⏹️')
     message.edit(list[0]);
     connection.dispatcher.pause();
-  } else if (emoji.name === '▶️') {
+    console.log(connection.status)
+  } else if (emoji.name === '▶️' && connection.status == 0) {
     message.reactions.removeAll()
     message.react('⏸️')
     message.react('▶️')
     message.react('⏹️')
     message.edit(list[1]);
     connection.dispatcher.resume();
-  } else if (emoji.name === '⏹️') {
+  } else if (emoji.name === '⏹️' && connection.status == 0) {
     connection.disconnect();
-    message.delete()
+    message.reactions.removeAll()
   }
 }
 
@@ -141,17 +142,24 @@ module.exports.run = async (client, message, args) => {
       .setColor('#548')
       .setTitle(videoAuthor, '\u200B')
       .setDescription(duration + `\nPlay  ▶️`);
-      
+    
+    const stop_embed = new MessageEmbed()
+      .setAuthor(infos, "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fde%2F1c%2F91%2Fde1c91788be0d791135736995109272a.png&f=1&nofb=1")
+      //.addField('Stop  ⏹️')
+      .setTitle(videoAuthor, '\u200B')
+      .setDescription(duration + `\nStop  ⏹️`);
+    
     const list = [pause_embed, play_embed];
     
     // Only try to join the sender's voice channel if they are in one themselves
     if (message.member.voice.channel) {
       connection = await message.member.voice.channel.join();
       await connection.play(ytdl(URL, { filter: 'audioonly'}));
-      connection.on("end", end => {
-        connection.disconnect();
-        message.delete();
-        //message.member.voice.channel.leave();
+      connection.on('end', end => {
+        if(connection.status == 0){
+            connection.disconnect();
+        }
+        message.reactions.removeAll()
         return;
       });
       message.channel.send(list[1])
