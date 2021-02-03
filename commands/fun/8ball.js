@@ -32,7 +32,7 @@ module.exports.run = (client, message, args) => {
         "Oui, sûr et certain !",
         "Absolument !",
         "... Heuu ... Oui ?",
-        "Comme dirait Julien Lepers : 'ET JE DIS OUI OUI OUI !",
+        "Comme dirait Julien Lepers : 'ET JE DIS OUI OUI OUI !'",
     ];
     const question = args.join(" "); // Récupère la question qui a été posé
     const response = replies[Math.floor(Math.random() * replies.length)]; // Nombre random
