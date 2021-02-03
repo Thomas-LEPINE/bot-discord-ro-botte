@@ -38,10 +38,10 @@ module.exports.run = async (client, message, args) => {
 
 module.exports.help = { // Toutes les informations de la commande
     name: 'group', // nom de la commande
-    aliases: ['group', 'grp', 'groupe'], // Tous les mots clés permettant d'executer la commande
+    aliases: ['group', 'grp', 'groupe', 'reunion'], // Tous les mots clés permettant d'executer la commande
     descritpion: 'Créé une réunion avec le nombre de groupe demandé', // Description breve de la commande
     args: true, // True si la commande nécessite forcément des arguments (false sinon)
-    usage: '', // Message d'usage de la commande (indication quand des arguments sont attendus)
+    usage: '!group 3', // Message d'usage de la commande (indication quand des arguments sont attendus)
     category: 'administration', // Categorie de la commande (le nom du repertoire dans notre cas)
     permission: false, // Si la commande nécessite des droits particulier
     permissionRequiered: '', //Permission minimimum demandé si besoin
