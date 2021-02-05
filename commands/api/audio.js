@@ -21,25 +21,26 @@ function createCollectorMessage(message, list) {
 }
 
 
-function onCollect(emoji, message, list) {
+async function onCollect(emoji, message, list) {
   if (emoji.name === '⏸️' && connection.status == 0) {
-    message.reactions.removeAll()
-    message.react('⏸️')
-    message.react('▶️')
-    message.react('⏹️')
-    message.edit(list[0]);
+    await message.reactions.removeAll()
+    await message.react('⏸️')
+    await message.react('▶️')
+    await message.react('⏹️')
+    await message.edit(list[0]);
     connection.dispatcher.pause();
-    console.log(connection.status)
+    // console.log(connection.status)
   } else if (emoji.name === '▶️' && connection.status == 0) {
-    message.reactions.removeAll()
-    message.react('⏸️')
-    message.react('▶️')
-    message.react('⏹️')
-    message.edit(list[1]);
+    await message.reactions.removeAll()
+    await message.react('⏸️')
+    await message.react('▶️')
+    await message.react('⏹️')
+    await message.edit(list[1]);
     connection.dispatcher.resume();
   } else if (emoji.name === '⏹️' && connection.status == 0) {
-    connection.disconnect();
-    message.reactions.removeAll()
+    await message.edit(list[2]);
+    await connection.disconnect();
+    await message.reactions.removeAll()
   }
 }
 
@@ -75,7 +76,7 @@ function time2sec(time)
           time_code_sec += parseInt(time_code[i]) * (60 ** (time_code.length - 1 - i))
         }
     }catch(err){
-      console.log(err)
+      console.log('cmd audio' + err)
     }
     return time_code_sec
 }
@@ -115,7 +116,7 @@ module.exports.run = async (client, message, args) => {
       videoAuthor = infosVideo.author;
       videoDuration = infosVideo.lengthSeconds;
     } catch(error) {
-      console.log(error);
+      console.log('cmd audio' + error);
     }
       
     const infos =  videoTitle;
@@ -147,9 +148,9 @@ module.exports.run = async (client, message, args) => {
       .setAuthor(infos, "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fde%2F1c%2F91%2Fde1c91788be0d791135736995109272a.png&f=1&nofb=1")
       //.addField('Stop  ⏹️')
       .setTitle(videoAuthor, '\u200B')
-      .setDescription(duration + `\nStop  ⏹️`);
+      .setDescription(duration + `\nStoped  ⏹️`);
     
-    const list = [pause_embed, play_embed];
+    const list = [pause_embed, play_embed, stop_embed];
     
     // Only try to join the sender's voice channel if they are in one themselves
     if (message.member.voice.channel) {
@@ -178,7 +179,7 @@ module.exports.run = async (client, message, args) => {
     }
     
   } catch(err) {
-    console.log(err);
+    console.log('cmd audio' + err);
   }
 };
 

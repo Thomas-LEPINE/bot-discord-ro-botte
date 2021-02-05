@@ -3,9 +3,6 @@ const gifSearch = require('gif-search'); // Doc Github : https://github.com/selc
 module.exports.run = async (client, message, args) => {
     args = args.join(' ').toLowerCase(); // Réunni les arguments avec un espace entre eux
     switch(args) {
-        case 'ag':
-            await message.channel.send({files: ['./assets/images/cmd-please/happy.png']});
-            break;
         case 'milk':
             await message.channel.send({files: ['./assets/images/cmd-please/milk.gif']});
             break;
@@ -26,6 +23,10 @@ module.exports.run = async (client, message, args) => {
             break;
         case 'alligator news':
             await message.channel.send({files: ['./assets/images/cmd-please/logo_alligator_news_portrait_fond_bleu.png']});
+            break;
+        case 'ag':
+            await message.channel.send({files: ['./assets/images/cmd-please/happy.png']});
+            await message.react('🙂'); await message.react('🤜'); await message.react('👌'); await message.react('🤷'); await message.react('🇪'); await message.react('🇿');
             break;
         case 'eight ball':
             await message.channel.send({files: ['./assets/images/billiards.png']});
@@ -54,11 +55,10 @@ module.exports.run = async (client, message, args) => {
                                 message.channel.send(gifurl2);
                             } else {
                                 message.channel.send("Not found ...");
-                                
                             }
-                        }).catch(err => console.log(err));  
+                        }).catch(err => console.log('cmd gif (try1)' + err));  
                     }                    
-                }).catch(err => console.log(err));        
+                }).catch(err => console.log('cmd gif (try2)' + err));        
             } catch(error){}
             break;
     }

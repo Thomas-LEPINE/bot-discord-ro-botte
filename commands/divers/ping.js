@@ -7,7 +7,7 @@ module.exports.help = { // Toutes les informations de la commande
     name: 'ping', // nom de la commande
     aliases: ['ping'], // Tous les mots clés permettant d'executer la commande
     descritpion: 'Renvoie \"Pong !\"', // Description breve de la commande
-    args: true, // True si la commande nécessite forcément des arguments (false sinon)
+    args: false, // True si la commande nécessite forcément des arguments (false sinon)
     usage: '', // Message d'usage de la commande (indication quand des arguments sont attendus)
     category: 'divers', // Categorie de la commande (le nom du repertoire dans notre cas)
     permission: false, // Si la commande nécessite des droits particulier
