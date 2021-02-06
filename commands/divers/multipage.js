@@ -1,5 +1,4 @@
-const ytdl = require('ytdl-core');
-const { MessageEmbed } = require("discord.js");
+const MessageEmbed = require("discord.js");
 const emojiNext = '⏸️'; // unicode emoji are identified by the emoji itself
 const emojiPrevious = '▶️';
 const reactionArrow = [emojiPrevious, emojiNext];
@@ -7,22 +6,22 @@ const reactionArrow = [emojiPrevious, emojiNext];
 const time = 60000;
 
 const first = () => new MessageEmbed()
-      .setAuthor('TOTO', "https://i.imgur.com/ezC66kZ.png")
-      .setColor('#AAA')
-      .setTitle('First')
-      .setDescription('First');
+    .setAuthor('TOTO', "https://i.imgur.com/ezC66kZ.png")
+    .setColor('#AAA')
+    .setTitle('First')
+    .setDescription('First');
 
 const second = () => new MessageEmbed()
-      .setAuthor('TOTO', "https://i.imgur.com/ezC66kZ.png")
-      .setColor('#548')
-      .setTitle('Second')
-      .setDescription('Second');
+    .setAuthor('TOTO', "https://i.imgur.com/ezC66kZ.png")
+    .setColor('#548')
+    .setTitle('Second')
+    .setDescription('Second');
 
 const third = () => new MessageEmbed()
-      .setAuthor('TOTO', "https://i.imgur.com/ezC66kZ.png")
-      .setColor('#35D')
-      .setTitle('Third')
-      .setDescription('Third');
+    .setAuthor('TOTO', "https://i.imgur.com/ezC66kZ.png")
+    .setColor('#35D')
+    .setTitle('Third')
+    .setDescription('Third');
 
 const list = [first, second, third];
 
@@ -60,7 +59,7 @@ function createCollectorMessage(message, getList) {
   collector.on('collect', r => {
     i = onCollect(r.emoji, message, i, getList);
   });
-  collector.on('end', collected => message.clearReactions());
+  // collector.on('end', collected => message.clearReactions());
 }
 
 function sendList(channel, getList){
