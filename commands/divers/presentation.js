@@ -7,13 +7,25 @@ module.exports.run = async (client, message, args) => {
     const num = args[0];
     switch(num) {
         case '1':
-            await message.channel.send({files: ['./assets/images/presentation/test-1.jpg']});
+            await message.channel.send({files: ['./assets/images/presentation/slide (1).jpg']});
             break;
         case '2':
-            await message.channel.send({files: ['./assets/images/presentation/test-2.jpg']});
+            await message.channel.send({files: ['./assets/images/presentation/slide (2).jpg']});
             break;
         case '3':
-            await message.channel.send({files: ['./assets/images/presentation/test-3.jpg']});
+            await message.channel.send({files: ['./assets/images/presentation/slide (3).jpg']});
+            break;
+        case '4':
+            await message.channel.send({files: ['./assets/images/presentation/slide (4).jpg']});
+            break;
+        case '5':
+            await message.channel.send({files: ['./assets/images/presentation/slide (5).jpg']});
+            break;
+        case '6':
+            await message.channel.send({files: ['./assets/images/presentation/slide (6).jpg']});
+            break;
+        case '7':
+            await message.channel.send('Désolé, il n\'y a pas plus de slide ... La présentation était finie ... C\'était bien n\'est-ce pas ?! 😃');
             break;
 
         default:

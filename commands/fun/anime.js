@@ -20,7 +20,7 @@ module.exports.run = async(client, message, args) => {
 };
 
 module.exports.help = {
-    name: 'anime', // nom de la commande
+    name: 'animeme', // nom de la commande
     aliases: ['anime', 'animemes', 'animememes', 'animeme'], // Tous les mots clés permettant d'executer la commande
     descritpion: 'Renvoie une meme Reddit provenant d\'un animé', // Description breve de la commande
     args: false, // True si la commande nécessite forcément des arguments (false sinon)

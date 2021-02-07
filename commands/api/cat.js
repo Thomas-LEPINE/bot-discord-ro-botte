@@ -14,7 +14,7 @@ module.exports.run = async(client, message, args) => {
         return message.channel.send(embed);
     } else {
         if(!isNaN(args[0])) { // Si on a bien récupéré un nombre
-            return message.channel.send('https://http.cat/' + args[0]).catch(console.error);;
+            return message.channel.send('https://http.cat/' + args[0]).catch(console.error);
         } else {
             return;
         }
