@@ -123,14 +123,13 @@ module.exports.run = (client, message, args) => {
 
 };
 
-
 module.exports.help = { // Toutes les informations de la commande
     name: 'channel', // nom de la commande
     aliases: ['channel','chan'], // Tous les mots clés permettant d'executer la commande
     descritpion: 'Creates or deletes the channels for the group!', // Description breve de la commande
     args: true, // True si la commande nécessite forcément des arguments (false sinon)
     usage: '[create | delete | move]', // Message d'usage de la commande (indication quand des arguments sont attendus)
-    category: 'administration', // Categorie de la commande (le nom du repertoire dans notre cas)
+    category: 'enseignement', // Categorie de la commande (le nom du repertoire dans notre cas)
     permission: true, // Si la commande nécessite des droits particulier
     permissionRequiered: 'MANAGE_CHANNELS', //Permission minimimum demandé si besoin
 };

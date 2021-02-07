@@ -92,7 +92,7 @@ module.exports.help = { // Toutes les informations de la commande
     descritpion: 'Aide, renvoie une liste de commandes ou les informations sur une seule !', // Description breve de la commande
     args: false, // True si la commande nécessite forcément des arguments (false sinon)
     usage: '', // Message d'usage de la commande (indication quand des arguments sont attendus)
-    category: 'classic', // Categorie de la commande (le nom du repertoire dans notre cas)
+    category: 'divers', // Categorie de la commande (le nom du repertoire dans notre cas)
     permission: false, // Si la commande nécessite des droits particulier
     permissionRequiered: '', //Permission minimimum demandé si besoin
 };

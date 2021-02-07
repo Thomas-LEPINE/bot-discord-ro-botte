@@ -17,7 +17,7 @@ module.exports.run = (client, message, args) => {
                             let usersThatReacted = []; //Initiates usersThatReacted as an array
                             let reactedUsers = await reaction.users.fetch(); //Fetches the users that reacted with the ✅ on the collected message
                             reactedUsers.map((user) => { //Maps out every user that reacted with ✅
-                                if(user.id != '779099054084194415'){ //if it's not the bot
+                                if(!user.bot){ //if it's not the bot
                                     usersThatReacted.push(`${user.username}`); //Pushes each user into the array with formatting ** (bold text) username#discriminator
                                 }
                             });
@@ -39,11 +39,11 @@ module.exports.run = (client, message, args) => {
 
 module.exports.help = { // Toutes les informations de la commande
     name: 'participants', // nom de la commande
-    aliases: ['participants'], // Tous les mots clés permettant d'executer la commande
+    aliases: ['participants', 'partgroup'], // Tous les mots clés permettant d'executer la commande
     descritpion: 'Affiche les participants de la réunion', // Description breve de la commande
     args: false, // True si la commande nécessite forcément des arguments (false sinon)
     usage: '', // Message d'usage de la commande (indication quand des arguments sont attendus)
-    category: 'administration', // Categorie de la commande (le nom du repertoire dans notre cas)
+    category: 'enseignement', // Categorie de la commande (le nom du repertoire dans notre cas)
     permission: false, // Si la commande nécessite des droits particulier
     permissionRequiered: '', //Permission minimimum demandé si besoin
 };

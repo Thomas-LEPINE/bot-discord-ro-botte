@@ -77,12 +77,12 @@ module.exports.run = (client, message, args) => {
 };
 
 module.exports.help = { // Toutes les informations de la commande
-    name: 'draw', // nom de la commande
-    aliases: ['draw','tirage'], // Tous les mots clés permettant d'executer la commande
+    name: 'tirage', // nom de la commande
+    aliases: ['draw','tirage', 'tiragegroup'], // Tous les mots clés permettant d'executer la commande
     descritpion: 'Tire aléatoire un membre de la réunion', // Description breve de la commande
     args: false, // True si la commande nécessite forcément des arguments (false sinon)
     usage: '', // Message d'usage de la commande (indication quand des arguments sont attendus)
-    category: 'administration', // Categorie de la commande (le nom du repertoire dans notre cas)
+    category: 'enseignement', // Categorie de la commande (le nom du repertoire dans notre cas)
     permission: false, // Si la commande nécessite des droits particulier
     permissionRequiered: '', //Permission minimimum demandé si besoin
 };

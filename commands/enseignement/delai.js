@@ -64,12 +64,12 @@ module.exports.run = async (client, message, args) => {
 };
 
 module.exports.help = { // Toutes les informations de la commande
-    name: 'delay', // nom de la commande
+    name: 'delai', // nom de la commande
     aliases: ['delay','delai'], // Tous les mots clés permettant d'executer la commande
-    descritpion: 'Renvoie le message après un délai sur le channel spécifié', // Description breve de la commande
+    descritpion: 'Renvoie un message (tel une réponse à une question) après un délai (à spécifier) sur le channel spécifié', // Description breve de la commande
     args: true, // True si la commande nécessite forcément des arguments (false sinon)
-    usage: 'A SPECIFIER', // Message d'usage de la commande (indication quand des arguments sont attendus)
-    category: 'divers', // Categorie de la commande (le nom du repertoire dans notre cas)
+    usage: '+ @<ID DU CHANNEL> + #<TEMPS> + <Le message>', // Message d'usage de la commande (indication quand des arguments sont attendus)
+    category: 'enseignement', // Categorie de la commande (le nom du repertoire dans notre cas)
     permission: false, // Si la commande nécessite des droits particulier
     permissionRequiered: '', //Permission minimimum demandé si besoin
 };

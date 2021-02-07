@@ -20,7 +20,7 @@ module.exports.run = async(client, message, args) => {
 };
 
 module.exports.help = {
-    name: 'template', // nom de la commande
+    name: 'templatememe', // nom de la commande
     aliases: ['templatememe', 'template', 'tmeme', 'tempmeme'], // Tous les mots clés permettant d'executer la commande
     descritpion: 'Renvoie un template d\'un mème de manière aléatoire', // Description breve de la commande
     args: false, // True si la commande nécessite forcément des arguments (false sinon)

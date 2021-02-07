@@ -10,7 +10,7 @@ module.exports.help = { // Toutes les informations de la commande
     aliases: ['userinfo', 'infouser', 'user'], // Tous les mots clés permettant d'executer la commande
     args: true, // True si la commande nécessite forcément des arguments (false sinon)
     usage: '@Username', // Message d'usage de la commande (indication quand des arguments sont attendus)
-    category: 'classic', // Categorie de la commande (le nom du repertoire dans notre cas)
+    category: 'divers', // Categorie de la commande (le nom du repertoire dans notre cas)
     permission: false, // Si la commande nécessite des droits particulier
     permissionRequiered: '', //Permission minimimum demandé si besoin
 };

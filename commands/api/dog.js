@@ -18,7 +18,7 @@ module.exports.run = async(client, message, args) => {
 
 module.exports.help = {
     name: 'dog', // nom de la commande
-    aliases: ['dog', 'dogs', 'chient', 'chients', 'bark', 'barkbark', 'grosdog'], // Tous les mots clés permettant d'executer la commande
+    aliases: ['dog', 'dogs', 'chien', 'chiens', 'bark', 'barkbark', 'grosdog'], // Tous les mots clés permettant d'executer la commande
     descritpion: 'Renvoie une image de chien (bark bark)', // Description breve de la commande
     args: false, // True si la commande nécessite forcément des arguments (false sinon)
     usage: '', // Message d'usage de la commande (indication quand des arguments sont attendus)
