@@ -2,13 +2,15 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
     // La fonction associée à la commande :
-    const cookierRole = message.guild.roles.cache.get("800130082533802004"); // Id role 1
-    const okManRole = message.guild.roles.cache.get("800130131258638376"); // Id role 2
-    const eightballisteRole = message.guild.roles.cache.get("800131600850485268"); // Id role 3
+    const cookieRole = message.guild.roles.cache.get("800130082533802004"); // Id role 1
+    const ihrmvRole = message.guild.roles.cache.get("808081626457833527"); // Id role 5A IHMRV
+    const cybersecuRole = message.guild.roles.cache.get("808081752958435418"); // Id role 5A Cyber-secu
+    const cyberphysiqueRole = message.guild.roles.cache.get("808081825032962059"); // Id role 5A Cyberphysique
 
     const emojiCookie = "🍪";
-    const emojieOkMan = "👌";
-    const emojieEightball = message.guild.emojis.cache.get("800131531221106709"); // Emoji propre au serveur
+    const emojiIhmrv =  message.guild.emojis.cache.get("808083967672188998"); // Emoji propre au serveur
+    const emojiCybersecurity = message.guild.emojis.cache.get("808084011502534667"); // Emoji propre au serveur
+    const emojiCyberPhysique = message.guild.emojis.cache.get("808084047870820392"); // Emoji propre au serveur
 
     const embed = new MessageEmbed()
         .setTitle("Rôles")
@@ -17,24 +19,26 @@ module.exports.run = async (client, message, args) => {
         .addField(
             "Les rôles disponnibles :",
             `
-            ${emojiCookie}  -  ${cookierRole.toString()}
-            ${emojieOkMan}  -  ${okManRole.toString()}
-            ${emojieEightball}  -  ${eightballisteRole.toString()}
+            ${emojiCookie}  -  ${cookieRole.toString()}
+            ${emojiIhmrv}  -  ${ihrmvRole.toString()}
+            ${emojiCybersecurity}  -  ${cybersecuRole.toString()}
+            ${emojiCyberPhysique}  -  ${cyberphysiqueRole.toString()}
             `
         )
     ;
 
     client.channels.cache.get('800126481875468302').send(embed).then(async msg => {
         await msg.react(emojiCookie);
-        await msg.react(emojieOkMan);
-        await msg.react(emojieEightball);
+        await msg.react(emojiIhmrv);
+        await msg.react(emojiCybersecurity);
+        await msg.react(emojiCyberPhysique);
     });
 };
 
 module.exports.help = { // Toutes les informations de la commande
     name: 'roles', // nom de la commande
     aliases: ['roles', 'role', 'allrole'], // Tous les mots clés permettant d'executer la commande
-    descritpion: 'Renvoie un message avec des réactions', // Description breve de la commande
+    descritpion: 'Renvoie un message avec des réactions pour qu\'une personne puisse s\'attribuer un rôle', // Description breve de la commande
     args: false, // True si la commande nécessite forcément des arguments (false sinon)
     usage: '', // Message d'usage de la commande (indication quand des arguments sont attendus)
     category: 'administration', // Categorie de la commande (le nom du repertoire dans notre cas)

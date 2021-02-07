@@ -1,28 +1,33 @@
-module.exports = (client, messageReaction, user) => {
-    const message = messageReaction.message; //Récupère le message envoyé
-    const member = message.guild.members.cache.get(user.id); //Récupère les informations de l'utilisateur
-    const emoji = messageReaction.emoji.name; //Récupère l'emoji cliqué
+module.exports = async (client, messageReaction, user) => {
+    const message = messageReaction.message; // Récupère le message envoyé
+    const member = message.guild.members.cache.get(user.id); // Récupère les informations de l'utilisateur
+    const emoji = messageReaction.emoji.name; // Récupère l'emoji cliqué
 
-    const channel = message.guild.channels.cache.find(c => c.id === '800126481875468302');
+    const channel = message.guild.channels.cache.find(c => c.id === '800126481875468302'); // Récupère le channel demandé (ici général)
 
-    const cookierRole = message.guild.roles.cache.get("800130082533802004"); //Id role 1
-    const okManRole = message.guild.roles.cache.get("800130131258638376"); //Id role 2
-    const eightballisteRole = message.guild.roles.cache.get("800131600850485268"); //Id role 3
+    const cookieRole = message.guild.roles.cache.get("800130082533802004"); // Id role cookie
+    const ihrmvRole = message.guild.roles.cache.get("808081626457833527"); // Id role 5A IHMRV
+    const cybersecuRole = message.guild.roles.cache.get("808081752958435418"); // Id role 5A Cyber-secu
+    const cyberphysiqueRole = message.guild.roles.cache.get("808081825032962059"); // Id role 5A Cyberphysique
 
     if(member.user.bot) return; // Les réactions ajouté au bot ne lui donnent pas les rôles
-    if(["eightball", "🍪", "👌"].includes(emoji) && message.channel.id === channel.id) {
+    if(["🍪", "ihmrv", "cybersecurity", "cyberphysique"].includes(emoji) && message.channel.id === channel.id) {
         switch (emoji) {
-            case "eightball":
-                member.roles.remove(eightballisteRole);
-                message.channel.send(`Le rôle ${eightballisteRole} a été supprimé à ${user.username}`);
-                break;
             case "🍪":
-                member.roles.remove(cookierRole);
-                message.channel.send(`Le rôle ${cookierRole} a été supprimé à ${user.username}`);
+                await member.roles.remove(cookieRole);
+                message.channel.send(`Le rôle ${cookieRole} a été enlevé à ${user.username}`);
                 break;
-            case "👌":
-                member.roles.remove(okManRole);
-                message.channel.send(`Le rôle ${okManRole} a été supprimé à ${user.username}`);
+            case "ihmrv":
+                await member.roles.remove(ihrmvRole);
+                message.channel.send(`Le rôle ${ihrmvRole} a été enlevé à ${user.username}`);
+                break;
+            case "cybersecurity":
+                await member.roles.remove(cybersecuRole);
+                message.channel.send(`Le rôle ${cybersecuRole} a été enlevé à ${user.username}`);
+                break;
+            case "cyberphysique":
+                await member.roles.remove(cyberphysiqueRole);
+                message.channel.send(`Le rôle ${cyberphysiqueRole} a été enlevé à ${user.username}`);
                 break;
         }
     } else {
