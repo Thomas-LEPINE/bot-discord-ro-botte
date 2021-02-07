@@ -40,17 +40,9 @@ module.exports.help = { // Toutes les informations de la commande
     name: 'group', // nom de la commande
     aliases: ['group', 'grp', 'groupe', 'reunion'], // Tous les mots clés permettant d'executer la commande
     descritpion: 'Créé une réunion avec le nombre de groupe demandé', // Description breve de la commande
-<<<<<<< HEAD:commands/enseignement/group.js
     args: false, // True si la commande nécessite forcément des arguments (false sinon)
     usage: '+ le nombre de groupe', // Message d'usage de la commande (indication quand des arguments sont attendus)
     category: 'enseignement', // Categorie de la commande (le nom du repertoire dans notre cas)
     permission: false, // Si la commande nécessite des droits particulier
     permissionRequiered: '', //Permission minimimum demandé si besoin
-=======
-    args: true, // True si la commande nécessite forcément des arguments (false sinon)
-    usage: '!group 3', // Message d'usage de la commande (indication quand des arguments sont attendus)
-    category: 'administration', // Categorie de la commande (le nom du repertoire dans notre cas)
-    permission: true, // Si la commande nécessite des droits particulier
-    permissionRequiered: 'MANAGE_CHANNELS', //Permission minimimum demandé si besoin
->>>>>>> bd8c1d9623d1b66e2dc88ee48bafd045bca692aa:commands/administration/group.js
 };
