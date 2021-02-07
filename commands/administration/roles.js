@@ -2,13 +2,13 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
     // La fonction associée à la commande :
-    const cookierRole = message.guild.roles.cache.get("800130082533802004"); //Id role 1
-    const okManRole = message.guild.roles.cache.get("800130131258638376"); //Id role 2
-    const eightballisteRole = message.guild.roles.cache.get("800131600850485268"); //Id role 3
+    const cookierRole = message.guild.roles.cache.get("800130082533802004"); // Id role 1
+    const okManRole = message.guild.roles.cache.get("800130131258638376"); // Id role 2
+    const eightballisteRole = message.guild.roles.cache.get("800131600850485268"); // Id role 3
 
     const emojiCookie = "🍪";
     const emojieOkMan = "👌";
-    const emojieEightball = message.guild.emojis.cache.get("800131531221106709"); //Emoji propre au serveur
+    const emojieEightball = message.guild.emojis.cache.get("800131531221106709"); // Emoji propre au serveur
 
     const embed = new MessageEmbed()
         .setTitle("Rôles")

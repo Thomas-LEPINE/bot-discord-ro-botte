@@ -20,9 +20,23 @@ const loadCommands = (dir = "./commands/") => { // On se place au niveau du doss
 	});
 };
 
+/* Récupérer les events dans le dossier event */
+client.events = new Discord.Collection(); // prépare la récupération des fichiers commands
+const loadEvents = (dir = "./events/") => { // On se place au niveau du dossier "commands"
+	readdirSync(dir).forEach(rep => { // On récupère chaque sous repertoire de ce dossier (puis on les parcours)
+		const eventsList = readdirSync(`${dir}/${rep}/`).filter(file => file.endsWith('.js'));
+		for (const event of eventsList) {
+			const myEvent = require(`${dir}/${rep}/${event}`); // On récuprère le fichier
+			const eventName = event.split('.')[0];
+			client.on(eventName, myEvent.bind(null, client));
+		}
+	});
+};
+
 /* AU DÉMARAGE */
 client.on('ready', () => {
 	loadCommands(); // On charge les commandes au démarrage
+	loadEvents(); // On charge les évènements au démarrage
 	console.log(`${client.user.tag} started !`);
 	// console.log(client.commands); // Affiche les commandes utilisables
 });

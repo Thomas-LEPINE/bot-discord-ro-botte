@@ -5,7 +5,7 @@ module.exports.run = (client, message, args) => { // La fonction associée à la
         return message.reply(`Voici l'édition numéro ${args} : \n ${lienEdition}`);
     } else {
         return message.reply(`Un nombre est attendu ...`);
-    }    
+    }
 };
 
 module.exports.help = { // Toutes les informations de la commande

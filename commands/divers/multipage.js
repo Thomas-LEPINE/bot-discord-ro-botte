@@ -1,4 +1,4 @@
-const MessageEmbed = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const emojiNext = '⏸️'; // unicode emoji are identified by the emoji itself
 const emojiPrevious = '▶️';
 const reactionArrow = [emojiPrevious, emojiNext];
