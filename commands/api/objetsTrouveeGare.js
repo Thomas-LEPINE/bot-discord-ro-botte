@@ -4,9 +4,10 @@ const { MessageEmbed } = require("discord.js");
 module.exports.run = (client, message, args) => {
     // La fonction associée à la commande :
     request('https://data.angers.fr/api/records/1.0/search/?dataset=objets-trouves-dans-les-gares-en-temps-reel&q=&rows=1130&facet=date&facet=gc_obo_gare_origine_r_name&facet=gc_obo_type_c', function (error, response, body) {
-        // console.error('error:', error); // Print the error if one occurred
-        // console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+        console.error('error:', error); // Print the error if one occurred
+        console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
 
+        
         ///Parsing JSON DATA
         const obj = JSON.parse(body);
 
@@ -19,11 +20,12 @@ module.exports.run = (client, message, args) => {
         let occuTab = []
         let nbObjTotal 
         let typeObj
-
+        
         ///Computing
-        for (let k = 0; k < obj.nhits; k++) {         
+        for (let k = 0; k < obj.parameters.rows; k++) {         
             allObj.push(obj.records[k].fields.gc_obo_nature_c)           
         } 
+        
         nbObjTotal = allObj.length
         for (let i = 0; i < nbObjTotal; i++) {
             if(!objTab.includes(allObj[i]))
@@ -68,12 +70,13 @@ module.exports.run = (client, message, args) => {
         }
         embed.addField('\u200B',  '\u200B')
         message.channel.send(embed);
+        
     });
 };
 
 module.exports.help = { // Toutes les informations de la commande
     name: 'objgare', // nom de la commande
-    aliases: ['objGare'], // Tous les mots clés permettant d'executer la commande
+    aliases: ['objgare'], // Tous les mots clés permettant d'executer la commande
     descritpion: 'Les objets trouvés de la gare d\'Angers !', // Description breve de la commande
     args: false, // True si la commande nécessite forcément des arguments (false sinon)
     usage: '', // Message d'usage de la commande (indication quand des arguments sont attendus)
