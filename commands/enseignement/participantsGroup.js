@@ -43,7 +43,13 @@ module.exports.help = { // Toutes les informations de la commande
     descritpion: 'Affiche les participants de la réunion', // Description breve de la commande
     args: false, // True si la commande nécessite forcément des arguments (false sinon)
     usage: '', // Message d'usage de la commande (indication quand des arguments sont attendus)
+<<<<<<< HEAD:commands/enseignement/participantsGroup.js
     category: 'enseignement', // Categorie de la commande (le nom du repertoire dans notre cas)
     permission: false, // Si la commande nécessite des droits particulier
     permissionRequiered: '', //Permission minimimum demandé si besoin
+=======
+    category: 'administration', // Categorie de la commande (le nom du repertoire dans notre cas)
+    permission: true, // Si la commande nécessite des droits particulier
+    permissionRequiered: 'MANAGE_CHANNELS', //Permission minimimum demandé si besoin
+>>>>>>> bd8c1d9623d1b66e2dc88ee48bafd045bca692aa:commands/administration/participants_group.js
 };
