@@ -24,7 +24,7 @@ module.exports.run = async (client, message, args) => {
         case 'alligator news':
             await message.channel.send({files: ['./assets/images/cmd-please/logo_alligator_news_portrait_fond_bleu.png']});
             break;
-        case 'ag':
+        case 'cs':
             await message.channel.send({files: ['./assets/images/cmd-please/happy.png']});
             await message.react('🙂'); await message.react('🤜'); await message.react('👌'); await message.react('🤷'); await message.react('🇪'); await message.react('🇿');
             break;
