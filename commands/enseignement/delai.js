@@ -3,12 +3,13 @@ module.exports.run = async (client, message, args) => {
   var nb_args = 0;
   var channel_id = 0;
   try {
+    // id du channel précédé d'un @ et temps d'un #
     if (args[0][0] == "@") {
       nb_args++;
       channel_id = args[0].slice(1);
       if (args[1][0] == "#") {
         time = args[1].slice(1); //prend à partir du 2ème carctère
-        msg = args.slice(2).join(" "); //conversion en list en string (aveec un espace entre chaque cellule/mots
+        msg = args.slice(2).join(" "); //conversion en list en string (avec un espace entre chaque cellule/mots
         nb_args++;
       } else {
         msg = args.slice(1).join(" ");
@@ -44,7 +45,8 @@ module.exports.run = async (client, message, args) => {
     if (channel_id != 0) {
       channel = client.channels.cache.get(channel_id);
     }
-
+    
+    // si pas d'id choisi le message sera envoyer sur le même channel
     setTimeout(() => {
       if (channel_id == 0) {
         message.channel.send(msg);
@@ -54,7 +56,7 @@ module.exports.run = async (client, message, args) => {
     }, time * 1000);
     if (channel_id != 0) {
       message.channel.send(
-        `Le message sera envoyé sur le channel __***@${channel.name}***__ dans **__${time}s__**`
+        `Le message sera envoyé sur le channel __***@${channel.name}***__ dans **__${time}s__**` //confirmation du lancement de la commande via le chat
       );
     }
   } catch (err) {

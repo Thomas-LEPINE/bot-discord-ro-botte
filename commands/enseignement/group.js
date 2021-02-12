@@ -4,34 +4,27 @@ module.exports.run = async (client, message, args) => {
   // La fonction associée à la commande :
 
   var nb_group;
+  //vérification arguments
   if (Object.keys(args).length == 0) {
     // Si la commande a des arguments
     nb_group = 2;
   } else {
     if (Number(args[0]) < 0 || isNaN(Number(args[0]))) {
       return message.channel.send("⚠️ Nombre de incorrect (inferieur à 0) ⚠️");
-    } else if (Number(args[0]) < 10) {
+    } else if (Number(args[0]) < 10) { //max 10 groupes
       nb_group = Number(args[0]);
     } else {
       nb_group = 10;
     }
   }
-
-  var group_name;
-  if (Object.keys(args).length < 1) {
-    // Si la commande a des arguments
-    group_name = "par défaut";
-  } else {
-    group_name = args[1];
-  }
-
+  //formattage du msg pour être retrouvé par les autres commandes de groupe
   message.channel
     .send(
       `📢 **S'inscrire à l'un des groupes à l'aide des réactions**\n⚠️ (Maximum de 10 groupes) : _${nb_group}_ groupes\n__Chef de groupe:__ @\`${message.author.tag}\` ID\`${message.author.id}\``
     )
     .then(async (msg) => {
       for (i = 0; i < nb_group; i++) {
-        await msg.react(i + "️⃣");
+        await msg.react(i + "️⃣"); //ajout des réactions
       }
     });
 };

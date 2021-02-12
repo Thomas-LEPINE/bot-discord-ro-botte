@@ -1,26 +1,26 @@
 module.exports.run = async (client, message, args) => {
     var first = true;
-    client.guilds.cache.get(message.guild.id).channels.cache.forEach(ch => {
-        if (ch.type === 'text'){
+    client.guilds.cache.get(message.guild.id).channels.cache.forEach(ch => { // lecture des message
+        if (ch.type === 'text'){ // de type text
             ch.messages.fetch({
-                limit: 100
+                limit: 100 //limite des 100 derniers messages du bot
             }).then(messages => {
                 const msgs = messages.filter(m => m.author.id === '779099054084194415') //messages envoyés par le bot
-                msgs.forEach(m => {
-                    if(m.content.includes(message.author.id) && first)
+                msgs.forEach(m => { //parcourir tous les messages
+                    if(m.content.includes(message.author.id) && first) //dès le premier message trouver on arrête de chercher
                     {
                         first = false;
                         message.channel.send(`Participants de la réunion:\n`);
                         var team = 0;
-                        m.reactions.cache.map(async (reaction) => { //Maps out every reaction made on the collected message
-                            let usersThatReacted = []; //Initiates usersThatReacted as an array
-                            let reactedUsers = await reaction.users.fetch(); // Fetches the users that reacted with the ✅ on the collected message
-                            reactedUsers.map((user) => { // Maps out every user that reacted with ✅
-                                if(!user.bot){ // if it's not the bot
-                                    usersThatReacted.push(`${user.username}`); //Pushes each user into the array with formatting ** (bold text) username#discriminator
+                        m.reactions.cache.map(async (reaction) => { //collecter les réactions
+                            let usersThatReacted = []; //liste des utilisateurs ayant réagi
+                            let reactedUsers = await reaction.users.fetch(); 
+                            reactedUsers.map((user) => {
+                                if(!user.bot){ // tous les utilisateurs sauf le bot
+                                    usersThatReacted.push(`${user.username}`); //ajout de l'utilisateur
                                 }
                             });
-                            await message.channel.send(`${team+"️⃣"} : ${usersThatReacted.join(' / ')}`); //Shows the randomly selected user that reacted. If you want to show all users, simply exchange: ${usersThatReacted[randomuser]} with ${users} !!
+                            await message.channel.send(`${team+"️⃣"} : ${usersThatReacted.join(' / ')}`); //affichage dans le chat
                             team += 1;
                             return;
                         });

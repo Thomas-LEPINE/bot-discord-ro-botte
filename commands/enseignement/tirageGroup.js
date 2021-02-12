@@ -1,21 +1,20 @@
 module.exports.run = (client, message, args) => {
     var find = false;
-    client.guilds.cache.get(message.guild.id).channels.cache.forEach(ch => {
-        if (ch.type === 'text'){
+    client.guilds.cache.get(message.guild.id).channels.cache.forEach(ch => { // lecture des message
+        if (ch.type === 'text'){ // de type text
             ch.messages.fetch({
-                limit: 100 //verficiation de 100 message (max autorisé)
+                limit: 100 //verficiation des 100 derniers message du bot (max autorisé)
             }).then(messages => {
                 const msgs = messages.filter(m => m.author.id === '779099054084194415') //messages envoyés par le bot
                 msgs.forEach(m => {
-                    if(m.content.includes(message.author.id) && !find && m.content.includes(`S\'inscrire à l\'un des groupes à l'aide des réactions`))
+                    if(m.content.includes(message.author.id) && !find && m.content.includes(`S\'inscrire à l\'un des groupes à l'aide des réactions`)) //formattage du message
                     {
                         find = true;
-                        console.log(find)
                         var nb_teams = 0; //nombre d'équipe dans la réunion
                         var in_nb = false; //curseur en lecture
-                        for(var i in m.content)
+                        for(var i in m.content) //lecture du message
                         {
-                            if(m.content[i] == "_") //borne début/fin du nombre
+                            if(m.content[i] == "_") //borne début/fin du nombre (souligné)
                             {
                                 if(in_nb)
                                 {
@@ -25,15 +24,13 @@ module.exports.run = (client, message, args) => {
                             }
                             else if(in_nb)
                             {
-                                nb_teams += m.content[i];
+                                nb_teams += m.content[i]; //comptage du nb de participants
                             }
                         }
                         nb_teams = parseInt(nb_teams);
                         if(args[0] == 'group' && nb_teams>0)
                         {
                             let randomteam = Math.floor(Math.random()*(nb_teams));
-                            console.log(nb_teams)
-                            console.log(randomteam)
                             return message.channel.send(`Personne tirée au sort: Équipe ${randomteam+"️⃣"}`); //Shows the randomly selected user that reacted. If you want to show all users, simply exchange: ${usersThatReacted[randomuser]} with ${users} !!
                         }
                         else if(args[0] == 'group' && nb_teams < 2)
@@ -43,23 +40,21 @@ module.exports.run = (client, message, args) => {
                         console.log(find)
                         var team = 0;
                         var participants = []; //liste de tous les participants
-                        let reactions = m.reactions.cache.find(emoji => emoji.emoji.name == '✅'); //Collects the reactions of the message, where reaction = :white_check_mark: (✅)
-                        m.reactions.cache.map(async (reaction) => { //Maps out every reaction made on the collected message
-                            let reactedUsers = await reaction.users.fetch(); //Fetches the users that reacted with the ✅ on the collected message
-                            reactedUsers.map((user) => { //Maps out every user that reacted with ✅
-                                if(user.id != '779099054084194415'){ //if it's not the bot
+                        m.reactions.cache.map(async (reaction) => { //collecter les réactions
+                            let reactedUsers = await reaction.users.fetch();
+                            reactedUsers.map((user) => {
+                                if(user.id != '779099054084194415'){ // tous les utilisateurs sauf le bot
                                     
                                     participants.push(`**${user.username}**`);
                                 }
                             });
-                            let users = participants.join('-').trim(); //Joins all items in the array with a hyphen 
-                            let randomparticipant = Math.floor(Math.random()*participants.length); //Selects a random number, based on the length of the above array
+                            let randomparticipant = Math.floor(Math.random()*participants.length); //nombre aléatoire pour le tirage
                             
                             if(team == nb_teams - 1 && participants.length > 0)
                             {
-                                return message.channel.send(`Personne tirée au sort: @${participants[randomparticipant]}`); //Shows the randomly selected user that reacted. If you want to show all users, simply exchange: ${usersThatReacted[randomuser]} with ${users} !!
+                                return message.channel.send(`Personne tirée au sort: @${participants[randomparticipant]}`); //Affichage (msg chat)
                             }
-                            else if (team == nb_teams - 1 && participants.length == 0)
+                            else if (team == nb_teams - 1 && participants.length == 0) // pas de msg trouvé = plus de groupe
                             {
                                 return message.channel.send(`Vous n'êtes pas/plus chef de groupe (*!help group*)`)
                             }

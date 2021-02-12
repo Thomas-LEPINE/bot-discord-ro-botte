@@ -10,6 +10,7 @@ const emojiStop = '⏹️';
 const reactions = [emojiPause, emojiPlay, emojiStop];
 
 /* FONCTIONS : */
+// déclanché lors de l'ajout d'une réaction
 function createCollectorMessage(message, list) {
   const collector = message.createReactionCollector(filter, { time });
   collector.on('collect', r => {
@@ -20,34 +21,38 @@ function createCollectorMessage(message, list) {
   );
 }
 
-
+// action lors de l'ajout d'une réaction
 async function onCollect(emoji, message, list) {
-  if (emoji.name === '⏸️' && connection.status == 0) {
-    await message.reactions.removeAll()
+  if (emoji.name === '⏸️' && connection.status == 0) { // pause connection.status permet de voir que l'audio est en lecture (4 lorsqu'il a été stopé
+    await message.reactions.removeAll() // clear les réactions à chaque fois (imitation de boutons)
     await message.react('⏸️')
     await message.react('▶️')
     await message.react('⏹️')
     await message.edit(list[0]);
     connection.dispatcher.pause();
     // console.log(connection.status)
-  } else if (emoji.name === '▶️' && connection.status == 0) {
+  } else if (emoji.name === '▶️' && connection.status == 0) { // play
     await message.reactions.removeAll()
     await message.react('⏸️')
     await message.react('▶️')
     await message.react('⏹️')
     await message.edit(list[1]);
     connection.dispatcher.resume();
-  } else if (emoji.name === '⏹️' && connection.status == 0) {
+  } else if (emoji.name === '⏹️' && connection.status == 0) { //arrêt de l'audio (fermeture)
     await message.edit(list[2]);
     await connection.disconnect();
     await message.reactions.removeAll()
   }
 }
 
+//ne renvoie que lorsque ce n'est pas le bot
 function filter(reaction, user){
   return (!user.bot) && (reactions.includes(reaction.emoji.name)); // check if the emoji is inside the list of emojis, and if the user is not a bot
 }
 
+
+//commencer la vidéo à un temps donné (non fonctionnnel)
+//convertion temps de la forme XX:XX:XX à des nombres de secondes
 function time2sec(time)
 {
     var time_code_sec = 0
@@ -81,6 +86,7 @@ function time2sec(time)
     return time_code_sec
 }
 
+//convertion sec à heure/minutes/secs
 function sec2time(time) {
     
     var h = Math.floor(time / 3600);
@@ -107,6 +113,7 @@ module.exports.run = async (client, message, args) => {
     let videoTitle = "";
     let videoAuthor =  "";
     let videoDuration =  "";
+    //récupération des infos de l'audio
     try {
       let infosVideo = await ytdl.getInfo(URL)
         .then((res) => res.player_response)
@@ -128,8 +135,10 @@ module.exports.run = async (client, message, args) => {
         }
     }
     
+    //affichage de la durée de l'audio dans le message (player) du bot
     const duration = sec2time(videoDuration);
     
+    //trois types de messages pour play/pause/stop avec le contenu différent
     const pause_embed = new MessageEmbed()
       .setAuthor(infos, "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fde%2F1c%2F91%2Fde1c91788be0d791135736995109272a.png&f=1&nofb=1")
       //.addField('Pause  ⏸️')
@@ -150,12 +159,13 @@ module.exports.run = async (client, message, args) => {
       .setTitle(videoAuthor, '\u200B')
       .setDescription(duration + `\nStoped  ⏹️`);
     
+    //lists des versions du message
     const list = [pause_embed, play_embed, stop_embed];
     
     // Only try to join the sender's voice channel if they are in one themselves
     if (message.member.voice.channel) {
-      connection = await message.member.voice.channel.join();
-      await connection.play(ytdl(URL, { filter: 'audioonly'}));
+      connection = await message.member.voice.channel.join(); //connection au channel
+      await connection.play(ytdl(URL, { filter: 'audioonly'})); //lancement de l'audio
       connection.on('end', end => {
         if(connection.status == 0){
             connection.disconnect();
@@ -163,19 +173,20 @@ module.exports.run = async (client, message, args) => {
         message.reactions.removeAll()
         return;
       });
+      // gestion réactions
       message.channel.send(list[1])
         .then(msg => msg.react(emojiPause))
-        .then(msgReaction => msgReaction.message.react(emojiPlay))
+        .then(msgReaction => msgReaction.message.react(emojiPlay)) //ajout des réaction
         .then(msgReaction => msgReaction.message.react(emojiStop))
         .then(msgReaction => createCollectorMessage(msgReaction.message, list));
     
-      const collector = message.createReactionCollector(filter, { time });
+      const collector = message.createReactionCollector(filter, { time }); //collecteur de réactions
       collector.on('collect', r => {
         onCollect(r.emoji, message, list);
       });
       collector.on('end', collected => message.clearReactions());
     } else {
-      return message.channel.send('⚠️ Rejoignez d\'abord un channel vocal ⚠️');
+      return message.channel.send('⚠️ Rejoignez d\'abord un channel vocal ⚠️'); // lance l'audio dans le channel l'utilisateur qui a lancé la commande
     }
     
   } catch(err) {
