@@ -66,11 +66,11 @@ module.exports.run = async (client, message, args) => {
 };
 
 module.exports.help = {
-    name: 'gif', // nom de la commande
-    aliases: ['gif', 'please', 'fun', 'pls', 'fn', 'pitiemonsieur', 'stp'], // Tous les mots clés permettant d'executer la commande
+    name: 'fungif', // nom de la commande
+    aliases: ['fungif', 'please', 'fun', 'pls', 'fn', 'pitiemonsieur', 'stp'], // Tous les mots clés permettant d'executer la commande
     descritpion: 'Renvoie un gif ou une image selon votre envie (ce que vous demandez)', // Description breve de la commande
     args: true, // True si la commande nécessite forcément des arguments (false sinon)
-    usage: '+ le nom de ce que vous souhaitez (ex café)', // Message d'usage de la commande (indication quand des arguments sont attendus)
+    usage: '+ le nom de ce que vous souhaitez (ex café) ⚠️ les résultats sont ... approximatifs', // Message d'usage de la commande (indication quand des arguments sont attendus)
     category: 'fun', // Categorie de la commande (le nom du repertoire dans notre cas)
     permission: false, // Si la commande nécessite des droits particulier
     permissionRequiered: '', //Permission minimimum demandé si besoin
