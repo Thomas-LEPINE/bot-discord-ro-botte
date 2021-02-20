@@ -40,7 +40,7 @@ module.exports.help = {
     aliases: ['gif', 'tenor', 'needgif', 'need'], // Tous les mots clés permettant d'executer la commande
     descritpion: 'Renvoie un gif ou une image selon votre envie (ce que vous demandez)', // Description breve de la commande
     args: true, // True si la commande nécessite forcément des arguments (false sinon)
-    usage: '+ le nom de ce que vous souhaitez (ex café)', // Message d'usage de la commande (indication quand des arguments sont attendus)
+    usage: '+ le nom de ce que vous souhaitez voir en gif (utilise l\'API Tenor)\nNB : Utilisez la commande suivi de "random" puis de ce que vous voulez, pour obtenir un résultat un peu moins prévisible 😉', // Message d'usage de la commande (indication quand des arguments sont attendus)
     category: 'api', // Categorie de la commande (le nom du repertoire dans notre cas)
     permission: false, // Si la commande nécessite des droits particulier
     permissionRequiered: '', //Permission minimimum demandé si besoin
