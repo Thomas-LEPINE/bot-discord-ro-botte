@@ -14,7 +14,7 @@ module.exports.run = async (client, message, args) => {
             search_url += "search?"; // Searching gif
         }
         search_url += "key=" + TOKEN + "&locale=" + "fr_FR" + "&limit=40";
-        if(args[0 === "café"]){args = "coffee";} // La recher de 'café' donne de très mauvais résultats
+        if(args[0] === "café" || args[0] === "cafe"){args = ["coffee"];} // La recher de 'café' donne de très mauvais résultats
         args = args.join(' ').toLowerCase(); // Réunni les arguments avec un espace entre eux
 
         // Doc : https://tenor.com/gifapi/documentation#endpoints-search
@@ -38,9 +38,9 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     name: 'gif', // nom de la commande
     aliases: ['gif', 'tenor', 'needgif', 'need'], // Tous les mots clés permettant d'executer la commande
-    descritpion: 'Renvoie un gif ou une image selon votre envie (ce que vous demandez)', // Description breve de la commande
+    descritpion: 'Renvoie un gif ou une image selon votre envie (ce que vous demandez)\nNB : Utilisez la commande suivi de "random" puis de ce que vous voulez, pour obtenir un résultat un peu moins prévisible 😉', // Description breve de la commande
     args: true, // True si la commande nécessite forcément des arguments (false sinon)
-    usage: '+ le nom de ce que vous souhaitez voir en gif (utilise l\'API Tenor)\nNB : Utilisez la commande suivi de "random" puis de ce que vous voulez, pour obtenir un résultat un peu moins prévisible 😉', // Message d'usage de la commande (indication quand des arguments sont attendus)
+    usage: '+ le nom de ce que vous souhaitez voir en gif (utilise l\'API Tenor)', // Message d'usage de la commande (indication quand des arguments sont attendus)
     category: 'api', // Categorie de la commande (le nom du repertoire dans notre cas)
     permission: false, // Si la commande nécessite des droits particulier
     permissionRequiered: '', //Permission minimimum demandé si besoin
