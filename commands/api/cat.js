@@ -13,10 +13,20 @@ module.exports.run = async(client, message, args) => {
         embed.setImage(cat).setFooter("API : http://aws.random.cat/meow");
         return message.channel.send(embed);
     } else {
-        if(!isNaN(args[0])) { // Si on a bien récupéré un nombre
-            return message.channel.send('https://http.cat/' + args[0]).catch(console.error);
+        if (!isNaN(args[0])) {
+          // Si on a bien récupéré un nombre
+          return message.channel
+            .send("https://http.cat/" + args[0])
+            .catch(console.error);
         } else {
-            return;
+            // On retourne un chat random
+          const embed = new MessageEmbed().setColor("#666666");
+          const cat = await fetch("http://aws.random.cat/meow")
+            .then((res) => res.json()) // On récupère un Json
+            .then((json) => json.file);
+
+          embed.setImage(cat).setFooter("API : http://aws.random.cat/meow");
+          return message.channel.send(embed);
         }
     }
 };
