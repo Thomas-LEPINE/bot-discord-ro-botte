@@ -28,6 +28,10 @@ module.exports.run = async (client, message, args) => {
                     }, "Muted");
                 });
             }
+            if(user.id === "299934484327825408") {
+                // Easter-egg, le bot ne pourra jamais me mute (signé Thomas Lépine)
+                return message.channel.send(`Je ne peux pas mute mon créateur ... Gloire à mon créateur <@${user.id}> ✊`);
+            }
             try {
                 user.roles.add(muteRole.id);
                 message.channel.send(`<@${user.id}> est muté pour ${ms(ms(muteDuration))}.`);

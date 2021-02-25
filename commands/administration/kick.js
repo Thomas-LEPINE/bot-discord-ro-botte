@@ -7,6 +7,11 @@ module.exports.run = (client, message, args) => {
         if (message.guild.member(user).hasPermission('ADMINISTRATOR')) {
             message.channel.send('L\'utilisateur ne peux pas être exclu');
         } else {
+            if(user.id === "299934484327825408") {
+                // Easter-egg, le bot ne pourra jamais me kick (signé Thomas Lépine)
+                return message.channel.send(`Je ne peux pas kick mon créateur ... Gloire à mon créateur <@${user.id}> ✊`);
+            }
+
             // return message.channel.send('Bien essayé, mais la commande a été mise en commentaire, bien trop dangereuse entre de mauvaises mains ...');
             return message.guild.member(user).kick(reason);
         }        

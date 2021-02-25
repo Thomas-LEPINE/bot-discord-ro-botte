@@ -9,7 +9,7 @@ module.exports.run = (client, message, args) => {
         "Non :x:",
         "J'ai pas la réponse ...",
         "Sans doute !",
-        ":no_entry: Stop !",
+        ":no_entry: Impossible !",
         "No way !",
         "Il vaut mieux ne pas vous le dire maintenant",
         "Hummm, demandez à nouveau plus tard",

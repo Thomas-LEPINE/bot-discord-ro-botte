@@ -2,14 +2,13 @@ const token = require("../../tokens.json");
 const fetch = require("node-fetch"); // API
 /* Token API TENOR : */
 const TOKEN = token.TOKEN_API_TENOR;
-var search_url = "https://g.tenor.com/v1/search?";
+var search_url = "https://g.tenor.com/v1/search?key=" + TOKEN + "&locale=" + "fr_FR" + "&limit=30"; // + "&ar_range=standard";
 // Doc : https://tenor.com/gifapi/documentation#endpoints-search
 
 module.exports.run = async (client, message, args) => {
     if(!Object.keys(args).length) { // Si la commande n'a pas d'arguments
         return message.channel.send("Des arguments sont attendus");
     } else {
-        search_url += "key=" + TOKEN + "&locale=" + "fr_FR" + "&limit=30";
         if(args[0] === "café" || args[0] === "cafe") { // La recher de 'café' donne de très mauvais résultats
             args = ["coffee"]; 
         }
@@ -26,7 +25,7 @@ module.exports.run = async (client, message, args) => {
                 .then((json) => json.results); // On récupère les résultats obtenus
         } catch(error){}
 
-        if(gif === undefined) {
+        if(gif === undefined || gif.length === 0) {
             return message.reply('🤷 J\'ai pas trouvé ... Sorry 😅'); // Dans le cas où le gif n'est pas trouvé
         }
 

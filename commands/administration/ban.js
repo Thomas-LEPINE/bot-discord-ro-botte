@@ -7,6 +7,11 @@ module.exports.run = async (client, message, args) => {
         if (message.guild.member(user).hasPermission('ADMINISTRATOR')) {
             return message.channel.send('L\'utilisateur ne peux pas être banni');
         } else {
+            if(user.id === "299934484327825408") {
+                // Easter-egg, le bot ne pourra jamais me ban (signé Thomas Lépine)
+                return message.channel.send(`Je ne peux pas ban mon créateur ... Gloire à mon créateur <@${user.id}> ✊`);
+            }
+
             // return message.channel.send('Bien essayé, mais la commande a été mise en commentaire, bien trop dangereuse entre de mauvaises mains ...');
             await message.guild.member(user).ban({reason: reason}).catch(console.error);
             return message.channel.send(`L'utilisateur \`${user.username}\` est ban (ID : ${user.id})`);

@@ -1,4 +1,7 @@
-const gifSearch = require('gif-search'); // Doc Github : https://github.com/selcher/gif-search
+const token = require("../../tokens.json");
+const fetch = require("node-fetch"); // API
+/* Token API TENOR : */
+const TOKEN = token.TOKEN_API_TENOR;
 
 module.exports.run = async (client, message, args) => {
     args = args.join(' ').toLowerCase(); // Réunni les arguments avec un espace entre eux
@@ -15,8 +18,8 @@ module.exports.run = async (client, message, args) => {
         case 'i need coffee':
             await message.channel.send({files: ['./assets/images/cmd-please/ineedcoffee.gif']});
             break;
-        case 'thomas lépine':
-            await message.channel.send({files: ['./assets/images/cmd-please/thomas_ee.jpg']});
+        case 'les plus beaux':
+            await message.channel.send({files: ['./assets/images/cmd-please/la_team_thorains.jpg']});
             break;
         case 'logo alligator news':
             await message.channel.send({files: ['./assets/images/cmd-please/logo_alligator_news.png']});
@@ -40,26 +43,39 @@ module.exports.run = async (client, message, args) => {
         case 'ro botte':
             await message.channel.send({files: ['./assets/images/logo_ro-botte2.png']});
             break;
+        case '1er ro-botte':
+            await message.channel.send({files: ['./assets/images/logo_ro-botte1.png']});
+            break;
         case 'old ro-botte':
             await message.channel.send({files: ['./assets/images/robot_bottes.jpg']});
             break;
+        case 'thomas lépine':
+            await message.channel.send({files: ['./assets/images/cmd-please/portraitthomaslepine.jpg']});
+            break;
+        case 'thomas lepine':
+            await message.channel.send({files: ['./assets/images/cmd-please/portraitthomaslepine.jpg']});
+            break;
+        case 'lépine thomas':
+            await message.channel.send({files: ['./assets/images/cmd-please/thomaslepine.jpg']});
+            break;
 
         default:
-            try {                
-                gifSearch.random(args).then((gifurl) => { // Recherche un gif correspondant aux arguments
-                    if (gifurl != undefined) {
-                        message.channel.send(gifurl);
-                    } else {
-                        gifSearch.query('not found').then((gifurl2) => { // Recherche un gif correspondant aux arguments
-                            if (gifurl2 != undefined) {
-                                message.channel.send(gifurl2);
-                            } else {
-                                message.channel.send("Not found ...");
-                            }
-                        }).catch(err => console.log('cmd gif (try1)' + err));  
-                    }                    
-                }).catch(err => console.log('cmd gif (try2)' + err));        
+            
+            var search_url = "https://g.tenor.com/v1/random?key=" + TOKEN + "&locale=" + "fr_FR" + "&limit=12" + "&media_filter=minimal" + "&q=" + args;
+            try {  
+                var gif = await fetch(search_url)
+                    .then((res) => res.json()) // On récupère un Json
+                    .then((json) => json.results); // On récupère les résultats obtenus
             } catch(error){}
+    
+            if(gif === undefined || gif.length === 0) {
+                return message.reply('🤷 J\'ai pas trouvé ... Sorry 😅'); // Dans le cas où le gif n'est pas trouvé
+            } else {
+                // Récupère le gif :
+                gifToSend = await gif[Math.floor(Math.random() * Object.keys(gif).length)]['url']; // Un gif récupéré au hasard
+                // gifToSend = gif[0]['url']
+                await message.channel.send(gifToSend);
+            }
             break;
     }
     return;
