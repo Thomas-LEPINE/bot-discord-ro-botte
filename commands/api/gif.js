@@ -14,10 +14,7 @@ module.exports.run = async (client, message, args) => {
         }
         args = args.join(' ').toLowerCase(); // Réunni les arguments avec un espace entre eux
         args.toLowerCase(); // Met les arguments en minuscules
-        
-        if(args === "thomas lépine" || args === "thomas lepine" || args === "lépine thomas" || args === "lepine thomas") { // Easter eggs créateur
-            return message.channel.send({files: ['./assets/images/img/camenbert_thomas.gif']});
-        }        
+            
         search_url += "&q=" + args;
         try {  
             var gif = await fetch(search_url)
