@@ -83,7 +83,7 @@ module.exports.run = async (client, message, args) => {
 
 module.exports.help = {
     name: 'fungif', // nom de la commande
-    aliases: ['fungif', 'please', 'fun', 'pls', 'fn', 'pitiemonsieur', 'stp'], // Tous les mots clés permettant d'executer la commande
+    aliases: ['fungif', 'fun', 'fn', 'pitiemonsieur', 'stp'], // Tous les mots clés permettant d'executer la commande
     descritpion: 'Renvoie un gif ou une image selon votre envie (ce que vous demandez)', // Description breve de la commande
     args: true, // True si la commande nécessite forcément des arguments (false sinon)
     usage: '+ le nom de ce que vous souhaitez (ex café) ⚠️ les résultats sont ... approximatifs', // Message d'usage de la commande (indication quand des arguments sont attendus)
