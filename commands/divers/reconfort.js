@@ -3,7 +3,7 @@ module.exports.run = (client, message, args) => {
     const replies = [
         "t'inquiète pas, tu vas y arriver !",
         "accroche toi ! Je sais que tu peux le faire !",
-        "tu sais, la vie mettra des pierres sur ta route. À toi de décider d’en faire des murs ou des ponts, je te connais, je sais que feras de supers ponts ! 🙂",
+        "tu sais, la vie mettra des pierres sur ta route. À toi de décider d’en faire des murs ou des ponts, je te connais, je sais que tu feras de supers ponts ! 🙂",
         "c’est une période difficile pour toi, je le sais, mais tu peux compter sur moi pour t’accompagner !",
         "quand la vie te donne une centaine de raisons de pleurer, montre-lui que tu en as mille de sourire !",
         "tkt",

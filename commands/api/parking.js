@@ -3,8 +3,6 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports.run = (client, message, args) => {
     
-    return message.channel.send(`🛑 L'API n'est actuellement pas disponible à cause d'une certaine cyber-attaque. Elle reviendra très bientôt !`)
-    
     // La fonction associée à la commande :
     request('https://data.angers.fr/api/records/1.0/search/?dataset=parking-angers&q=&rows=18&facet=nom', function (error, response, body) {
         // console.error('error:', error); // Print the error if one occurred
