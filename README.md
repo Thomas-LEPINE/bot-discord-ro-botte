@@ -3,22 +3,20 @@
 <!-- [![Issues][issues-shield]][issues-url] -->
 
 <!-- PROJECT LOGO -->
-<br />
-<p align="center">
+<div align="center" style="text-align:center; margin:0 auto;">
+  <h1>README</h1>
   <img src="https://github.com/Thomas-LEPINE/bot-discord/blob/main/assets/images/logo_ro-botte2.png" alt="Logo" width="200">
-  <h2 align="center">Ro-Botte : Un bot Discord hors pair !</h2>
+  <h2>Ro-Botte : Un bot Discord hors pair !</h2>
   <br />
-  <h3 align="center">Create with Discord.js</h3>
-  <a href="https://discord.js.org" alt="logo discord.js"><img align="center" src="https://discord.js.org/static/logo.svg" width="546" alt="discord.js" /></a>
+  <h3>Create with Discord.js</h3>
+  <a href="https://discord.js.org" alt="logo discord.js"><img align="center" src="https://discord.js.org/static/logo.svg" width="544" alt="discord.js" /></a>
+</div>
 
-  <h3 align="center">README</h3>
-
-  <p align="center">
-    <br />
-    <a href="https://github.com/Thomas-LEPINE/bot-discord/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/Thomas-LEPINE/bot-discord/issues">Request Feature</a>
-  </p>
+<p align="center">
+  <br />
+  <a href="https://github.com/Thomas-LEPINE/bot-discord/issues">Report Bug</a>
+  ·
+  <a href="https://github.com/Thomas-LEPINE/bot-discord/issues">Request Feature</a>
 </p>
 
 <!-- TABLE OF CONTENTS -->
