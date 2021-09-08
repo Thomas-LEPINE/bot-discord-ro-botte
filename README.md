@@ -5,9 +5,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-
   <img src="https://github.com/Thomas-LEPINE/bot-discord/blob/main/assets/images/logo_ro-botte2.png" alt="Logo" width="200">
-  <h2><b>Ro-Botte<b> : Un bot Discord hors pair !</h2>
+  <h2><b>Ro-Botte</b> : Un bot Discord hors pair !</h2>
   <br />
   <h4>Create with Discord.js</h4>
   <a href="https://discord.js.org" alt="logo discord.js"><img align="center" src="https://discord.js.org/static/logo.svg" width="546" alt="discord.js" /></a>
