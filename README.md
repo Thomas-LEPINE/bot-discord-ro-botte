@@ -10,7 +10,7 @@
   <h2 align="center"><b>Ro-Botte<b> : Un bot Discord hors pair !</h2>
   <br />
   <h4 align="center">Create with Discord.js</h4>
-  <a align="center" href="https://discord.js.org"><img src="https://discord.js.org/static/logo.svg" width="546" alt="discord.js" /></a>
+  <a href="https://discord.js.org" alt="logo discord.js"><img align="center" src="https://discord.js.org/static/logo.svg" width="546" alt="discord.js" /></a>
 
   <h3 align="center">README</h3>
 
