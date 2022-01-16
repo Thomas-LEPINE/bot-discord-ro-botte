@@ -195,8 +195,8 @@ module.exports.run = async (client, message, args) => {
 };
 
 module.exports.help = { // Toutes les informations de la commande
-    name: 'audio', // nom de la commande
-    aliases: ['audio', 'ad', 'yt'], // Tous les mots clés permettant d'executer la commande
+    name: 'music', // nom de la commande
+    aliases: ['music', 'audio', 'ad', 'yt', 'play', 'p', 'youtube'], // Tous les mots clés permettant d'executer la commande
     descritpion: 'Joue un audio en spécifiant l\'URL', // Description breve de la commande
     args: true, // True si la commande nécessite forcément des arguments (false sinon)
     usage: '+ l\'URL de la vidéo youtube souhaitée', // Message d'usage de la commande (indication quand des arguments sont attendus)
