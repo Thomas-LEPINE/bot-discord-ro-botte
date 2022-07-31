@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Thomas-LEPINE/bot-discord.git"
+    "url": "git+https://github.com/Thomas-LEPINE/bot-discord-ro-botte.git"
   },
   "keywords": [
     "Bot",
@@ -17,9 +17,9 @@
   "author": "Thomas LEPINE, Lucas PERCEREAU, Hugo REMIN, Mael COURONNE",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Thomas-LEPINE/bot-discord/issues"
+    "url": "https://github.com/Thomas-LEPINE/bot-discord-ro-botte/issues"
   },
-  "homepage": "https://github.com/Thomas-LEPINE/bot-discord#readme",
+  "homepage": "https://github.com/Thomas-LEPINE/bot-discord-ro-botte#readme",
   "dependencies": {
     "discord.js": "^12.4.1",
     "ffmpeg-static": "^4.2.7",
