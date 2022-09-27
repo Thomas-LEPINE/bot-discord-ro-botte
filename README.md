@@ -61,6 +61,10 @@ git clone https://github.com/Thomas-LEPINE/bot-discord-ro-botte.git
 ```sh
 node main.js
 ```
+OU lancez le code suivant en executant le fichier :
+```bat
+start_bot_cmd.bat
+```
 
 <!-- CONTACT -->
 ## Contact
