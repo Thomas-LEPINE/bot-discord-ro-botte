@@ -55,7 +55,7 @@ https://discord.com/api/oauth2/authorize?client_id=779099054084194415&permission
 
 1. Clone the repo
 ```sh
-git clone https://github.com/Thomas-LEPINE/bot-discord.git
+git clone https://github.com/Thomas-LEPINE/bot-discord-ro-botte.git
 ```
 2. Lancer le bot :
 ```sh
